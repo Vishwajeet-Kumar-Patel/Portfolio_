@@ -102,22 +102,55 @@ body {
 .light h4,
 .light h5,
 .light h6 {
-  color: rgb(15 23 42);
+  color: rgb(15 23 42) !important;
 }
 
 .light p {
-  color: rgb(51 65 85);
+  color: rgb(51 65 85) !important;
+}
+
+.light .text-slate-100,
+.light .text-slate-200 {
+  color: rgb(15 23 42) !important;
+}
+
+.light .text-slate-300 {
+  color: rgb(30 41 59) !important;
+}
+
+.light .text-slate-400 {
+  color: rgb(71 85 105) !important;
 }
 
 /* Light mode card backgrounds */
 .light .bg-slate-800\/50,
+.light .bg-slate-900\/50,
 .light .from-slate-800\/50,
 .light .to-slate-900\/50 {
-  background: rgba(248, 250, 252, 0.8);
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04) !important;
 }
 
 /* Light mode borders */
 .light .border-slate-700\/50,
-.light .border-slate-700 {
-  border-color: rgba(203, 213, 225, 0.5);
+.light .border-slate-700,
+.light .border-slate-800 {
+  border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+/* Improve gradient text contrast in light mode */
+.light .bg-gradient-to-r.from-blue-400,
+.light .bg-gradient-to-r.from-purple-400,
+.light .bg-gradient-to-r.from-cyan-400 {
+  filter: brightness(0.7) saturate(1.3) contrast(1.1);
+}
+
+/* Light mode hover effects */
+.light .hover\:border-blue-500:hover {
+  border-color: rgb(59 130 246) !important;
+}
+
+.light .hover\:border-purple-500:hover {
+  border-color: rgb(168 85 247) !important;
 }

@@ -77,21 +77,21 @@ export default function Contact() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 px-4">
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
-          <p className="text-slate-400 text-lg mt-6 max-w-2xl mx-auto">
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg mt-4 sm:mt-6 max-w-2xl mx-auto px-4">
             Let's discuss how I can contribute to your team and build amazing
             solutions together
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -114,34 +114,34 @@ export default function Contact() {
                     {info.href ? (
                       <a
                         href={info.href}
-                        className="flex items-start p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600 transition-all group"
+                        className="flex items-start p-4 sm:p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600 transition-all group"
                       >
                         <div
-                          className={`p-3 rounded-lg bg-gradient-to-br ${info.gradient} mr-4`}
+                          className={`p-2 sm:p-3 rounded-lg bg-gradient-to-br ${info.gradient} mr-3 sm:mr-4 flex-shrink-0`}
                         >
-                          <info.icon className="w-6 h-6 text-white" />
+                          <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
-                        <div>
-                          <p className="text-slate-400 text-sm mb-1">
+                        <div className="min-w-0 flex-1">
+                          <p className="text-slate-400 text-xs sm:text-sm mb-1">
                             {info.label}
                           </p>
-                          <p className="text-white font-medium group-hover:text-blue-400 transition-colors">
+                          <p className="text-white font-medium text-sm sm:text-base group-hover:text-blue-400 transition-colors break-words">
                             {info.value}
                           </p>
                         </div>
                       </a>
                     ) : (
-                      <div className="flex items-start p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50">
+                      <div className="flex items-start p-4 sm:p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50">
                         <div
-                          className={`p-3 rounded-lg bg-gradient-to-br ${info.gradient} mr-4`}
+                          className={`p-2 sm:p-3 rounded-lg bg-gradient-to-br ${info.gradient} mr-3 sm:mr-4 flex-shrink-0`}
                         >
-                          <info.icon className="w-6 h-6 text-white" />
+                          <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
-                        <div>
-                          <p className="text-slate-400 text-sm mb-1">
+                        <div className="min-w-0 flex-1">
+                          <p className="text-slate-400 text-xs sm:text-sm mb-1">
                             {info.label}
                           </p>
-                          <p className="text-white font-medium">{info.value}</p>
+                          <p className="text-white font-medium text-sm sm:text-base break-words">{info.value}</p>
                         </div>
                       </div>
                     )}
@@ -151,10 +151,10 @@ export default function Contact() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
                 Connect With Me
               </h3>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -171,8 +171,8 @@ export default function Contact() {
                     <div
                       className={`absolute inset-0 bg-gradient-to-br ${social.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-lg`}
                     />
-                    <div className="relative p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600 transition-all">
-                      <social.icon className="w-8 h-8 text-slate-300 group-hover:text-white transition-colors" />
+                    <div className="relative p-4 sm:p-6 rounded-xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600 transition-all">
+                      <social.icon className="w-6 h-6 sm:w-8 sm:h-8 text-slate-300 group-hover:text-white transition-colors" />
                     </div>
                   </motion.a>
                 ))}
@@ -187,10 +187,10 @@ export default function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 space-y-6"
+              className="p-4 sm:p-6 md:p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 space-y-4 sm:space-y-6"
             >
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
                   Your Name
                 </label>
                 <Input
@@ -201,12 +201,12 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="bg-slate-900/50 border-slate-700 focus:border-blue-500 text-white"
+                  className="bg-slate-900/50 border-slate-700 focus:border-blue-500 text-white text-sm sm:text-base"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
                   Email Address
                 </label>
                 <Input
@@ -217,32 +217,32 @@ export default function Contact() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="bg-slate-900/50 border-slate-700 focus:border-blue-500 text-white"
+                  className="bg-slate-900/50 border-slate-700 focus:border-blue-500 text-white text-sm sm:text-base"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-slate-300 mb-2">
                   Message
                 </label>
                 <Textarea
                   required
-                  rows={6}
+                  rows={5}
                   placeholder="Tell me about your project..."
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="bg-slate-900/50 border-slate-700 focus:border-blue-500 text-white resize-none"
+                  className="bg-slate-900/50 border-slate-700 focus:border-blue-500 text-white resize-none text-sm sm:text-base"
                 />
               </div>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-6 rounded-lg shadow-lg shadow-blue-500/50 transition-all"
+                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 sm:py-6 rounded-lg shadow-lg shadow-blue-500/50 transition-all text-sm sm:text-base"
                 >
-                  <Send className="w-5 h-5 mr-2" />
+                  <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                   Send Message
                 </Button>
               </motion.div>
@@ -254,9 +254,9 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 pt-8 border-t border-slate-800 text-center"
+          className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-800 text-center"
         >
-          <p className="text-slate-400">
+          <p className="text-slate-400 text-xs sm:text-sm px-4">
             © 2025 Vishwajeet Kumar. Built with Next.js, Tailwind CSS, and
             Framer Motion.
           </p>

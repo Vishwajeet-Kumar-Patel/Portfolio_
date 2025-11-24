@@ -112,7 +112,7 @@ export default function Hero() {
             <motion.a
               href="/Vishwajeet's_Resume.pdf"
               download
-              className="px-8 py-4 rounded-lg bg-slate-800/50 backdrop-blur-sm border border-slate-700 text-white font-semibold hover:bg-slate-800 transition-colors"
+              className="px-8 py-4 rounded-lg  backdrop-blur-sm border border-slate-700 text-white font-semibold shadow-lg shadow-slate-800/50 hover:border-blue-500 hover:shadow-blue-500/30 transition-all"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -90,7 +90,7 @@ export default function Projects() {
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl blur-xl`}
               />
-              <div className="relative h-full p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600 transition-all">
+              <div className="relative h-full p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 dark:from-slate-800/50 dark:to-slate-900/50 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-slate-600 transition-all">
                 <div className="flex items-start justify-between mb-6">
                   <div
                     className={`p-4 rounded-xl bg-gradient-to-br ${project.gradient} shadow-lg`}
@@ -106,9 +106,9 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="p-2 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-blue-500/50 transition-colors"
+                        className="p-2 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-blue-500/50 transition-colors"
                       >
-                        <ExternalLink className="w-5 h-5 text-slate-400 hover:text-blue-400" />
+                        <ExternalLink className="w-5 h-5 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-blue-400" />
                       </motion.a>
                     )}
                     {project.githubLink && (
@@ -118,26 +118,26 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="p-2 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-blue-500/50 transition-colors"
+                        className="p-2 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-blue-500/50 transition-colors"
                       >
-                        <Github className="w-5 h-5 text-slate-400 hover:text-blue-400" />
+                        <Github className="w-5 h-5 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-blue-400" />
                       </motion.a>
                     )}
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-lg text-blue-400 font-semibold mb-4">
+                <p className="text-lg text-blue-400 dark:text-blue-400 light:text-blue-600 font-semibold mb-4">
                   {project.subtitle}
                 </p>
-                <p className="text-slate-300 leading-relaxed mb-6">
+                <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed mb-6">
                   {project.description}
                 </p>
 
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-400 mb-3">
+                  <h4 className="text-sm font-semibold text-slate-400 dark:text-slate-400 light:text-slate-600 mb-3">
                     Tech Stack:
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -151,7 +151,7 @@ export default function Projects() {
                           delay: index * 0.2 + techIndex * 0.05,
                         }}
                         whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 text-sm font-medium hover:border-blue-500/50 hover:text-white transition-all"
+                        className="px-3 py-1.5 rounded-lg bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 text-slate-300 dark:text-slate-300 light:text-slate-800 text-sm font-medium hover:border-blue-500/50 hover:text-white dark:hover:text-white light:hover:text-slate-900 transition-all"
                       >
                         {tech}
                       </motion.span>

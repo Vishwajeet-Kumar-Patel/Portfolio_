@@ -68,13 +68,13 @@ export default function About() {
               </div>
             </div>
 
-            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 shadow-xl">
+            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 dark:from-slate-800/50 dark:to-slate-900/50 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 shadow-xl">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-2xl" />
               <div className="relative">
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-4">
                   Career Goal
                 </h3>
-                <p className="text-slate-300 leading-relaxed text-lg">
+                <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed text-lg">
                   Seeking to contribute as a Software Engineer Trainee – Gen AI
                   by designing intelligent systems that reason, plan, and act
                   autonomously. Committed to building the future of AI-driven
@@ -100,13 +100,13 @@ export default function About() {
                 className="relative group"
               >
                 <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur-xl from-blue-500/50 to-cyan-500/50" />
-                <div className="relative p-6 rounded-xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600 transition-all">
+                <div className="relative p-6 rounded-xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 dark:from-slate-800/80 dark:to-slate-900/80 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-slate-600 transition-all">
                   <div
                     className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${strength.color} mb-4`}
                   >
                     <strength.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h4 className="text-white font-semibold text-sm">
+                  <h4 className="text-white dark:text-white light:text-slate-900 font-semibold text-sm">
                     {strength.title}
                   </h4>
                 </div>

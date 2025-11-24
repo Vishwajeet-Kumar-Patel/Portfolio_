@@ -86,7 +86,7 @@ export default function Skills() {
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl blur-xl`}
               />
-              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600 transition-all h-full">
+              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 dark:from-slate-800/50 dark:to-slate-900/50 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-slate-600 transition-all h-full">
                 <div
                   className={`inline-flex px-4 py-2 rounded-lg bg-gradient-to-r ${category.gradient} mb-6`}
                 >
@@ -106,7 +106,7 @@ export default function Skills() {
                         delay: categoryIndex * 0.1 + skillIndex * 0.05,
                       }}
                       whileHover={{ scale: 1.1 }}
-                      className="px-4 py-2 rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 text-sm font-medium hover:border-blue-500/50 hover:text-white transition-all cursor-default"
+                      className="px-4 py-2 rounded-lg bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 text-slate-300 dark:text-slate-300 light:text-slate-800 text-sm font-medium hover:border-blue-500/50 hover:text-white dark:hover:text-white light:hover:text-slate-900 transition-all cursor-default"
                     >
                       {skill}
                     </motion.span>
