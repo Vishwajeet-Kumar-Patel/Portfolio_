@@ -3,9 +3,33 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Trophy, Star } from 'lucide-react';
+import { Award, Trophy, Star, Cloud, Code, TrendingUp } from 'lucide-react';
 
 const certifications = [
+  {
+    title: 'AWS Solutions Architecture Job Simulation',
+    issuer: 'Forage',
+    date: 'August 16th, 2025',
+    description: 'Designed a simple, scalable, hosting architecture',
+    icon: Cloud,
+    gradient: 'from-orange-500 to-amber-500',
+  },
+  {
+    title: 'Deloitte Technology Job Simulation',
+    issuer: 'Forage',
+    date: 'August 16th, 2025',
+    description: 'Coding Development',
+    icon: Code,
+    gradient: 'from-green-600 to-green-400',
+  },
+  {
+    title: 'Goldman Sachs Operations Job Simulation',
+    issuer: 'Forage',
+    date: 'August 16th, 2025',
+    description: 'Foundations of operations, Facilitating ultra-high net worth transactions',
+    icon: TrendingUp,
+    gradient: 'from-blue-600 to-blue-400',
+  },
   {
     title: 'Prompt Engineering',
     issuer: 'OpenAI',
@@ -98,7 +122,13 @@ export default function Certifications() {
                   <h4 className="text-xl font-bold text-white mb-2">
                     {cert.title}
                   </h4>
-                  <p className="text-blue-400 font-semibold">{cert.issuer}</p>
+                  <p className="text-blue-400 font-semibold mb-1">{cert.issuer}</p>
+                  {cert.date && (
+                    <p className="text-slate-400 text-sm mb-2">{cert.date}</p>
+                  )}
+                  {cert.description && (
+                    <p className="text-slate-300 text-sm mt-3">{cert.description}</p>
+                  )}
                 </div>
               </motion.div>
             ))}

@@ -3,9 +3,39 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Brain, FileSearch, Activity, Sprout } from 'lucide-react';
+import { ExternalLink, Github, Brain, FileSearch, Activity, Sprout, Gamepad2, Link2, Code2 } from 'lucide-react';
 
 const projects = [
+  {
+    title: 'Real-Time Multiplayer Gaming Platform',
+    subtitle: 'Distributed Backend System',
+    description:
+      'Designed and implemented a real-time distributed backend supporting concurrent multiplayer sessions. Used Redis for in-memory state management to ensure atomic operations and prevent race conditions. Built room-scoped WebSocket communication for low-latency state synchronization with reconnection handling for unstable client networks. Deployed stateless services on AWS, enabling horizontal scaling.',
+    techStack: ['Node.js', 'Express', 'PostgreSQL', 'Redis', 'AWS', 'Socket.IO'],
+    icon: Gamepad2,
+    gradient: 'from-purple-500 to-pink-500',
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Ludo',
+  },
+  {
+    title: 'Distributed URL Shortener',
+    subtitle: 'Scalable URL Shortening Service',
+    description:
+      'Developed a scalable URL shortening service optimized for high read traffic. Implemented Redis caching to reduce database load and improve redirect latency. Designed collision-resistant short URL generation with indexed database queries. Added rate limiting and abuse prevention mechanisms. Documented system design trade-offs including cache consistency and availability.',
+    techStack: ['Node.js', 'FastAPI', 'PostgreSQL', 'Redis', 'AWS'],
+    icon: Link2,
+    gradient: 'from-indigo-500 to-purple-500',
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/URL_Shortener',
+  },
+  {
+    title: 'AI-Powered Code Review & PR Analysis System',
+    subtitle: 'Intelligent Code Quality Assessment',
+    description:
+      'Built an AI-powered system to analyze GitHub pull requests for code quality, security risks, and complexity. Implemented RAG-based pipelines using embeddings to evaluate code against best practices. Generated actionable review summaries to assist developers during code reviews. Designed modular APIs to support multi-repository and multi-language analysis.',
+    techStack: ['FastAPI', 'OpenAI', 'Gemini', 'RAG', 'Vector Embeddings'],
+    icon: Code2,
+    gradient: 'from-rose-500 to-red-500',
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/AI_Code_PR_Reviewer',
+  },
   {
     title: 'Agri-Advisor AI',
     subtitle: 'AI-Based Crop Recommendation & Advisory Platform',

@@ -3,8 +3,39 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { ExternalLink, Trophy } from 'lucide-react';
 
 const skillCategories = [
+  {
+    title: 'Languages',
+    skills: ['Python', 'JavaScript (ES6+)', 'Java', 'C#'],
+    gradient: 'from-blue-500 to-cyan-500',
+  },
+  {
+    title: 'Backend Development',
+    skills: ['Node.js', 'Express', 'NestJS', 'FastAPI', 'REST', 'WebSockets', 'Microservices'],
+    gradient: 'from-cyan-500 to-teal-500',
+  },
+  {
+    title: 'Frontend Development',
+    skills: ['Next.js', 'React.js', 'Tailwind CSS'],
+    gradient: 'from-teal-500 to-green-500',
+  },
+  {
+    title: 'Data & Caching',
+    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Firebase'],
+    gradient: 'from-green-500 to-emerald-500',
+  },
+  {
+    title: 'Cloud/DevOps',
+    skills: ['AWS EC2', 'AWS S3', 'AWS RDS', 'Docker', 'Git', 'GitHub', 'CI/CD', 'GitHub Actions'],
+    gradient: 'from-emerald-500 to-blue-500',
+  },
+  {
+    title: 'Security',
+    skills: ['JWT', 'RBAC (CASL)'],
+    gradient: 'from-purple-500 to-pink-500',
+  },
   {
     title: 'AI & ML',
     skills: [
@@ -12,35 +43,10 @@ const skillCategories = [
       'LLMs (OpenAI, Gemini)',
       'LangChain',
       'Prompt Engineering',
-      'NLP',
-      'Vector DBs (Pinecone)',
+      'RAG',
+      'Vector Embeddings',
     ],
-    gradient: 'from-blue-500 to-cyan-500',
-  },
-  {
-    title: 'Frontend',
-    skills: ['Next.js', 'React.js', 'Tailwind CSS', 'HTML5/CSS3'],
-    gradient: 'from-cyan-500 to-teal-500',
-  },
-  {
-    title: 'Backend',
-    skills: ['Node.js', 'NestJS', 'Express.js', 'FastAPI', 'REST APIs'],
-    gradient: 'from-teal-500 to-green-500',
-  },
-  {
-    title: 'Database',
-    skills: ['MongoDB', 'PostgreSQL', 'Firebase'],
-    gradient: 'from-green-500 to-emerald-500',
-  },
-  {
-    title: 'Programming Languages',
-    skills: ['Python', 'JavaScript (ES6+)', 'Java', 'C#'],
-    gradient: 'from-emerald-500 to-blue-500',
-  },
-  {
-    title: 'Tools & Practices',
-    skills: ['Git', 'Postman', 'Agile Scrum', 'JWT Security', 'CI/CD Basics'],
-    gradient: 'from-purple-500 to-pink-500',
+    gradient: 'from-pink-500 to-rose-500',
   },
 ];
 
@@ -116,6 +122,49 @@ export default function Skills() {
             </motion.div>
           ))}
         </div>
+
+        {/* LeetCode Achievement */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-16 max-w-3xl mx-auto"
+        >
+          <motion.div
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="relative group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-yellow-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl blur-xl" />
+            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-orange-500/50 transition-all">
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-orange-500 to-yellow-500 shadow-lg">
+                    <Trophy className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-1">
+                      Data Structures & Algorithms
+                    </h3>
+                    <p className="text-orange-400 font-semibold text-lg">
+                      350+ Problems Solved on LeetCode
+                    </p>
+                  </div>
+                </div>
+                <motion.a
+                  href="https://leetcode.com/u/vishwajeet_kumar_patel/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold hover:shadow-lg hover:shadow-orange-500/50 transition-all"
+                >
+                  <span>View Profile</span>
+                  <ExternalLink className="w-4 h-4" />
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
