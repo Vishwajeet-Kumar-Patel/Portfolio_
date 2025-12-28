@@ -79,8 +79,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-xl sm:text-2xl md:text-3xl text-slate-300 font-light max-w-4xl mx-auto"
           >
-            Final-Year CSE (AI Specialization) | Generative AI & Full-Stack
-            Developer
+            Software Development Engineer (Backend / Distributed Systems / AI)
           </motion.p>
 
           <motion.p
@@ -89,8 +88,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto"
           >
-            Building secure, scalable applications that integrate LLMs, Prompt
-            Engineering, and modern web frameworks
+            Backend-focused Software Development Engineer with experience building scalable systems, low-latency distributed 
+            backends, and AI-powered services. Strong in Node.js, NestJS, Redis, PostgreSQL, WebSockets, AWS, and FastAPI, with 
+            hands-on open-source contributions to production-grade AI libraries.
           </motion.p>
 
           <motion.div

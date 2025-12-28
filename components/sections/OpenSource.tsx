@@ -167,7 +167,7 @@ export default function OpenSource() {
                           delay: 0.4 + techIndex * 0.05,
                         }}
                         whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 text-sm font-medium hover:border-green-500/50 hover:text-white transition-all"
+                        className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-medium"
                       >
                         {tech}
                       </motion.span>

@@ -34,8 +34,8 @@ export default function Navigation() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-slate-950/80 dark:bg-slate-950/80 light:bg-white/90 backdrop-blur-lg shadow-lg shadow-blue-500/10 light:shadow-slate-300/50'
-          : 'bg-transparent dark:bg-transparent light:bg-white/70'
+          ? 'bg-slate-950/90 dark:bg-slate-950/90 light:bg-slate-800/95 backdrop-blur-lg shadow-lg shadow-blue-500/10 dark:shadow-blue-500/10 light:shadow-slate-500/20 border-b border-transparent dark:border-transparent light:border-slate-700'
+          : 'bg-slate-950/40 dark:bg-slate-950/40 light:bg-slate-800/90 backdrop-blur-md light:border-b light:border-slate-700 light:shadow-sm light:shadow-slate-600/30'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +53,7 @@ export default function Navigation() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white dark:hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-slate-200/50 transition-colors"
+                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-white hover:text-white dark:hover:text-white light:hover:text-blue-400 hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-white/20 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -63,7 +63,7 @@ export default function Navigation() {
           </div>
 
           <button
-            className="md:hidden text-white dark:text-white light:text-slate-900"
+            className="md:hidden text-white dark:text-white light:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,14 +76,14 @@ export default function Navigation() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-slate-900/95 dark:bg-slate-900/95 light:bg-white/95 backdrop-blur-lg"
+          className="md:hidden bg-slate-900/98 dark:bg-slate-900/98 light:bg-white backdrop-blur-lg border-b border-slate-800 dark:border-slate-800 light:border-slate-300 shadow-xl light:shadow-slate-400/30"
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white dark:hover:text-white light:hover:text-slate-900 hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-slate-200/50"
+                className="block px-3 py-2 rounded-lg text-base font-medium text-slate-300 dark:text-slate-300 light:text-white hover:text-white dark:hover:text-white light:hover:text-blue-400 hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-white/20"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

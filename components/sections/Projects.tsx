@@ -181,7 +181,7 @@ export default function Projects() {
                           delay: index * 0.2 + techIndex * 0.05,
                         }}
                         whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-lg bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 text-slate-300 dark:text-slate-300 light:text-slate-800 text-sm font-medium hover:border-blue-500/50 hover:text-white dark:hover:text-white light:hover:text-slate-900 transition-all"
+                        className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-medium"
                       >
                         {tech}
                       </motion.span>
