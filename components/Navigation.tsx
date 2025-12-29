@@ -53,7 +53,7 @@ export default function Navigation() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-white hover:text-white dark:hover:text-white light:hover:text-blue-400 hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-white/20 transition-colors"
+                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 dark:text-slate-300 light:text-black hover:text-white dark:hover:text-white light:hover:text-blue-400 hover:bg-slate-800/50 dark:hover:bg-slate-800/50 light:hover:bg-white/20 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

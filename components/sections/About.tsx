@@ -121,7 +121,7 @@ export default function About() {
                 className="relative group"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${strength.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-xl blur-xl`} />
-                <div className="relative p-6 rounded-xl bg-gradient-to-br from-blue-900/50 to-blue-950/50 dark:from-blue-900/50 dark:to-blue-950/50 light:from-white light:to-blue-50/30 backdrop-blur-sm border border-blue-700/30 dark:border-blue-700/30 light:border-blue-300/50 hover:border-blue-500/50 dark:hover:border-blue-500/50 light:hover:border-blue-500 transition-all h-full">
+                <div className="relative p-6 rounded-xl bg-gradient-to-br from-blue-900/50 to-blue-950/50 dark:from-blue-900/50 dark:to-blue-900/50 light:from-white light:to-blue-50/30 backdrop-blur-sm border border-blue-700/30 dark:border-blue-700/30 light:border-blue-300/50 hover:border-blue-500/50 dark:hover:border-blue-500/50 light:hover:border-blue-500 transition-all h-full">
                   <div
                     className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${strength.color} mb-4`}
                   >
