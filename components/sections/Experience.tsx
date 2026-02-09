@@ -12,31 +12,20 @@ export default function Experience() {
   const experiences = [
     {
       title: 'Software Developer Intern',
-      company: 'StuFit, Lucknow',
-      duration: '1st July 2025 – 30th Sept 2025',
+      company: 'StuFit Approach Pvt. Ltd., Lucknow',
+      duration: 'July 2025 – September 2025',
       location: 'Lucknow, India',
       icon: Briefcase,
       achievements: [
-        'Developed and deployed a healthcare web application (Next.js + NestJS + PostgreSQL) for 2000+ users, following Agile SDLC',
-        'Implemented authentication (JWT + CASL) to enable secure role-based access, improving application reliability',
-        'Collaborated with cross-functional teams to test, debug, and deploy features on time, reducing bug backlog by 20%',
+        'Designed and shipped scalable backend services using NestJS and PostgreSQL, supporting 2,000+ active users',
+        'Owned backend modules end-to-end including API design, implementation, testing, deployment, and production support',
+        'Optimized database queries and execution paths, achieving ~30% reduction in API latency',
+        'Implemented secure authentication and role-based access control (JWT + RBAC)',
+        'Debugged and resolved production incidents, improving system reliability and user experience',
+        'Collaborated with senior engineers through code reviews, Agile sprints, and structured feedback',
       ],
-      technologies: ['Next.js', 'NestJS', 'PostgreSQL', 'JWT', 'CASL', 'Agile SDLC'],
+      technologies: ['NestJS', 'PostgreSQL', 'JWT', 'RBAC', 'AWS', 'Agile'],
       gradient: 'from-blue-500 to-cyan-500',
-    },
-    {
-      title: 'Cyber Security Intern',
-      company: 'CyberGyan – C-DAC Noida',
-      duration: '19th May 2025 – 30th June 2025',
-      location: 'Noida, India',
-      icon: Shield,
-      achievements: [
-        'Conducted vulnerability assessments and implemented security protocols, enhancing system security by 20%',
-        'Assisted in penetration testing and risk analysis for web-based platforms',
-        'Documented cybersecurity incidents and supported the implementation of corrective actions',
-      ],
-      technologies: ['Vulnerability Assessment', 'Penetration Testing', 'Risk Analysis', 'Security Protocols', 'Incident Response'],
-      gradient: 'from-purple-500 to-pink-500',
     },
   ];
 

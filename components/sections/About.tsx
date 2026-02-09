@@ -57,14 +57,13 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-2xl" />
               <div className="relative">
                 <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-4">
-                  Backend-Focused Software Development Engineer
+                  Software Engineer | Backend & Distributed Systems
                 </h3>
                 <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed text-lg">
-                  Backend-focused Software Development Engineer with experience building scalable systems, 
-                  low-latency distributed backends, and AI-powered services. Strong in Node.js, NestJS, Redis, 
-                  PostgreSQL, WebSockets, AWS, and FastAPI, with hands-on open-source contributions to 
-                  production-grade AI libraries. Currently pursuing B.Tech in Computer Science and Engineering 
-                  (AI Specialization) from University of Lucknow (SGPA: 8.10).
+                  Backend-focused Software Engineer with hands-on experience building scalable, production-grade systems. 
+                  Strong foundations in distributed systems, backend architecture, databases, caching, and system design. 
+                  Experienced in owning services end-to-end — from design and development to deployment, optimization, and 
+                  production debugging. Proven ability to work on real-world systems with measurable impact.
                 </p>
               </div>
             </div>
@@ -76,10 +75,10 @@ export default function About() {
                   Technical Expertise
                 </h3>
                 <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed text-lg mb-6">
-                  Specializing in building real-time distributed backend systems with expertise in microservices 
-                  architecture, WebSocket communications, Redis caching, and cloud deployment on AWS. Active 
-                  contributor to open-source AI projects including LangChain, with proven experience in developing 
-                  high-performance, scalable applications that handle concurrent users and optimize for low-latency operations.
+                  Specializing in building scalable backend services and distributed systems with expertise in microservices 
+                  architecture, real-time communication, caching strategies, and cloud deployment. Proven track record of 
+                  optimizing database queries and API performance, implementing secure authentication systems, and debugging 
+                  production incidents. Active contributor to open-source projects including LangChain.
                 </p>
                 
                 <div className="space-y-3">
@@ -87,7 +86,7 @@ export default function About() {
                     Core Technologies:
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'NestJS', 'FastAPI', 'Redis', 'PostgreSQL', 'WebSockets', 'AWS', 'Microservices'].map((tech) => (
+                    {['Node.js', 'NestJS', 'Spring Boot', 'PostgreSQL', 'MongoDB', 'Redis', 'WebSockets', 'AWS'].map((tech) => (
                       <motion.span
                         key={tech}
                         initial={{ opacity: 0, scale: 0.8 }}

@@ -79,7 +79,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-xl sm:text-2xl md:text-3xl text-slate-300 font-light max-w-4xl mx-auto"
           >
-            Software Development Engineer (Backend / Distributed Systems / AI)
+            Software Engineer | Backend & Distributed Systems
           </motion.p>
 
           <motion.p
@@ -88,9 +88,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto"
           >
-            Backend-focused Software Development Engineer with experience building scalable systems, low-latency distributed 
-            backends, and AI-powered services. Strong in Node.js, NestJS, Redis, PostgreSQL, WebSockets, AWS, and FastAPI, with 
-            hands-on open-source contributions to production-grade AI libraries.
+            Backend-focused Software Engineer with hands-on experience building scalable, production-grade systems. Strong 
+            foundations in distributed systems, backend architecture, databases, caching, and system design. Experienced in 
+            owning services end-to-end — from design and development to deployment, optimization, and production debugging. 
+            Actively seeking Backend / Software Engineer roles in product-driven teams.
           </motion.p>
 
           <motion.div

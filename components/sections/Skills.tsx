@@ -8,33 +8,43 @@ import { ExternalLink, Trophy } from 'lucide-react';
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['Python', 'JavaScript (ES6+)', 'Java', 'C#'],
+    skills: ['Java', 'Python', 'JavaScript'],
     gradient: 'from-blue-500 to-cyan-500',
   },
   {
-    title: 'Backend Development',
-    skills: ['Node.js', 'Express', 'NestJS', 'FastAPI', 'REST', 'WebSockets', 'Microservices'],
+    title: 'Backend Engineering',
+    skills: ['Node.js', 'NestJS', 'Spring Boot', 'REST APIs', 'Microservices', 'WebSockets'],
     gradient: 'from-cyan-500 to-teal-500',
   },
   {
-    title: 'Frontend Development',
-    skills: ['Next.js', 'React.js', 'Tailwind CSS'],
+    title: 'Frontend',
+    skills: ['Next.js', 'React', 'TypeScript'],
     gradient: 'from-teal-500 to-green-500',
   },
   {
-    title: 'Data & Caching',
-    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Firebase'],
+    title: 'Databases & Caching',
+    skills: ['PostgreSQL', 'MongoDB', 'Redis'],
     gradient: 'from-green-500 to-emerald-500',
   },
   {
-    title: 'Cloud/DevOps',
-    skills: ['AWS EC2', 'AWS S3', 'AWS RDS', 'Docker', 'Git', 'GitHub', 'CI/CD', 'GitHub Actions'],
+    title: 'Distributed Systems',
+    skills: ['Stateless Services', 'Concurrency Handling', 'Rate Limiting', 'Horizontal Scaling'],
     gradient: 'from-emerald-500 to-blue-500',
   },
   {
-    title: 'Security',
-    skills: ['JWT', 'RBAC (CASL)'],
+    title: 'Cloud & DevOps',
+    skills: ['AWS (EC2, S3, RDS)', 'Docker', 'CI/CD', 'GitHub Actions', 'Git'],
+    gradient: 'from-blue-500 to-purple-500',
+  },
+  {
+    title: 'Security & Auth',
+    skills: ['JWT', 'RBAC'],
     gradient: 'from-purple-500 to-pink-500',
+  },
+  {
+    title: 'Computer Science',
+    skills: ['Data Structures & Algorithms', 'OOPs', 'System Design', 'Low-Level & High-Level Design'],
+    gradient: 'from-pink-500 to-rose-500',
   },
   {
     title: 'AI & ML',
@@ -46,7 +56,7 @@ const skillCategories = [
       'RAG',
       'Vector Embeddings',
     ],
-    gradient: 'from-pink-500 to-rose-500',
+    gradient: 'from-rose-500 to-orange-500',
   },
 ];
 
@@ -146,7 +156,7 @@ export default function Skills() {
                       Data Structures & Algorithms
                     </h3>
                     <p className="text-orange-400 font-semibold text-lg">
-                      350+ Problems Solved on LeetCode
+                      400+ Problems Solved on LeetCode
                     </p>
                   </div>
                 </div>

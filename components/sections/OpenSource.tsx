@@ -29,6 +29,25 @@ export default function OpenSource() {
       techStack: ['Python', 'LangChain Core', 'Pytest', 'CI/CD', 'GitHub Actions'],
       gradient: 'from-green-500 to-emerald-500',
     },
+    {
+      title: 'Next.js',
+      subtitle: 'Documentation Enhancement',
+      role: 'Open Source Contributor',
+      repository: 'vercel/next.js',
+      prLink: 'https://github.com/vercel/next.js/pull/87654',
+      githubLink: 'https://github.com/vercel/nextjs',
+      description:
+        'Enhanced the App Router internationalization documentation with practical improvements for better developer experience. Added installation instructions, best practices for SEO optimization, locale persistence patterns, and TypeScript examples. PR has been approved and is awaiting merge from maintainers with write access.',
+      keyContributions: [
+        'Added installation commands and dependency setup for internationalization packages',
+        'Created comprehensive Best Practices section covering SEO optimization with hreflang tags and locale persistence using cookies',
+        'Improved middleware examples and restructured proxy patterns for better clarity',
+        'Collaborated with Next.js maintainers through multiple review cycles to align with documentation standards',
+        'PR approved after addressing feedback on Metadata API patterns, type definitions, and redirect logic',
+      ],
+      techStack: ['Next.js', 'TypeScript', 'MDX', 'Documentation', 'i18n'],
+      gradient: 'from-blue-500 to-cyan-500',
+    },
   ];
 
   return (
@@ -55,13 +74,13 @@ export default function OpenSource() {
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto space-y-8">
           {contributions.map((contribution, index) => (
             <motion.div
               key={contribution.title}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
               whileHover={{ scale: 1.01 }}
               className="relative group"
             >
