@@ -1,12 +1,39 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta',
+  display: 'swap',
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'Vishwajeet Kumar | AI & Full-Stack Developer Portfolio',
-  description: 'Final-year B.Tech CSE (AI Specialization) student passionate about Generative AI and Full-Stack Development. Building secure, scalable applications with LLMs and modern frameworks.',
+  metadataBase: new URL('https://vishwajeet.dev'),
+  title: 'Vishwajeet Kumar | Backend Engineer | Distributed Systems | Applied AI Systems',
+  description:
+    'Backend and Applied AI engineer building scalable APIs, distributed architectures, and production-ready AI workflows.',
+  keywords: [
+    'Backend Engineer',
+    'Distributed Systems',
+    'Applied AI Engineer',
+    'Node.js',
+    'FastAPI',
+    'LangChain',
+    'System Design',
+  ],
+  openGraph: {
+    title: 'Vishwajeet Kumar | Backend & Applied AI Engineer',
+    description:
+      'Portfolio focused on backend systems, distributed architecture, and practical AI engineering.',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
@@ -16,7 +43,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>{children}</body>
+      <body className={`${plusJakarta.variable} ${jetBrainsMono.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

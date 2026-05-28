@@ -3,22 +3,39 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import {
-  Brain,
-  Code,
-  Zap,
-  Users,
-  Target,
-  Lightbulb,
-} from 'lucide-react';
+import { Cloud, Gauge, Network, Router, Sparkles, Workflow } from 'lucide-react';
 
-const strengths = [
-  { icon: Brain, title: 'Analytical Thinking', color: 'from-blue-500 to-cyan-500' },
-  { icon: Code, title: 'Clean Code Practices', color: 'from-cyan-500 to-teal-500' },
-  { icon: Zap, title: 'Problem Solving', color: 'from-teal-500 to-green-500' },
-  { icon: Users, title: 'Agile Collaboration', color: 'from-green-500 to-emerald-500' },
-  { icon: Target, title: 'AI Innovation', color: 'from-emerald-500 to-blue-500' },
-  { icon: Lightbulb, title: 'Creative Solutions', color: 'from-blue-500 to-purple-500' },
+const pillars = [
+  {
+    icon: Router,
+    title: 'Backend Systems',
+    description: 'Designing service boundaries, API contracts, and operational patterns for production workloads.',
+  },
+  {
+    icon: Network,
+    title: 'Distributed Architecture',
+    description: 'Building for concurrency, consistency, and graceful degradation in networked systems.',
+  },
+  {
+    icon: Workflow,
+    title: 'AI-Assisted Workflows',
+    description: 'Integrating retrieval, orchestration, and inference into practical backend products.',
+  },
+  {
+    icon: Gauge,
+    title: 'Performance',
+    description: 'Profiling bottlenecks, tuning hot paths, and improving API and query latency.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Real-Time Engineering',
+    description: 'Delivering websocket and event-driven flows with clear state handling and reliability.',
+  },
+  {
+    icon: Cloud,
+    title: 'Cloud Infrastructure',
+    description: 'Deploying and operating backend systems with AWS, containers, and CI/CD pipelines.',
+  },
 ];
 
 export default function About() {
@@ -29,110 +46,38 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="relative py-20 lg:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 light:from-slate-50 light:via-white light:to-slate-100"
+      className="relative border-t border-slate-900 py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="mb-12"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              About Me
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">About</p>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Engineering-first product builder</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            I focus on backend systems that are reliable in production and straightforward to operate. My work combines
+            scalable APIs, distributed service communication, real-time application behavior, and AI-backed features where
+            they provide clear product value. I prefer measurable improvements over hype and prioritize maintainable systems.
+          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 dark:from-slate-800/50 dark:to-slate-900/50 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-2xl" />
-              <div className="relative">
-                <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-4">
-                  Software Engineer | Backend & Distributed Systems
-                </h3>
-                <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed text-lg">
-                  Backend-focused Software Engineer with hands-on experience building scalable, production-grade systems. 
-                  Strong foundations in distributed systems, backend architecture, databases, caching, and system design. 
-                  Experienced in owning services end-to-end — from design and development to deployment, optimization, and 
-                  production debugging. Proven ability to work on real-world systems with measurable impact.
-                </p>
-              </div>
-            </div>
-
-            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 dark:from-slate-800/50 dark:to-slate-900/50 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-2xl" />
-              <div className="relative">
-                <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-4">
-                  Technical Expertise
-                </h3>
-                <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed text-lg mb-6">
-                  Specializing in building scalable backend services and distributed systems with expertise in microservices 
-                  architecture, real-time communication, caching strategies, and cloud deployment. Proven track record of 
-                  optimizing database queries and API performance, implementing secure authentication systems, and debugging 
-                  production incidents. Active contributor to open-source projects including LangChain.
-                </p>
-                
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-slate-400 dark:text-slate-400 light:text-slate-600">
-                    Core Technologies:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Node.js', 'NestJS', 'Spring Boot', 'PostgreSQL', 'MongoDB', 'Redis', 'WebSockets', 'AWS'].map((tech) => (
-                      <motion.span
-                        key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.4 }}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-medium"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 gap-6"
-          >
-            {strengths.map((strength, index) => (
-              <motion.div
-                key={strength.title}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="relative group"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${strength.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-xl blur-xl`} />
-                <div className="relative p-6 rounded-xl bg-gradient-to-br from-blue-900/50 to-blue-950/50 dark:from-blue-900/50 dark:to-blue-900/50 light:from-white light:to-blue-50/30 backdrop-blur-sm border border-blue-700/30 dark:border-blue-700/30 light:border-blue-300/50 hover:border-blue-500/50 dark:hover:border-blue-500/50 light:hover:border-blue-500 transition-all h-full">
-                  <div
-                    className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${strength.color} mb-4`}
-                  >
-                    <strength.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="text-white dark:text-white light:text-blue-700 font-semibold text-sm">
-                    {strength.title}
-                  </h4>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {pillars.map((pillar, index) => (
+            <motion.article
+              key={pillar.title}
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              className="rounded-xl border border-slate-800 bg-slate-900/60 p-5"
+            >
+              <pillar.icon className="h-5 w-5 text-cyan-300" />
+              <h3 className="mt-4 text-base font-semibold text-slate-100">{pillar.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-400">{pillar.description}</p>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

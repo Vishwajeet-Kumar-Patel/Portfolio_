@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle, Shield } from 'lucide-react';
+import { Briefcase, Calendar, CheckCircle, MapPin } from 'lucide-react';
 
 export default function Experience() {
   const ref = useRef(null);
@@ -11,21 +11,34 @@ export default function Experience() {
 
   const experiences = [
     {
+      title: 'Backend Engineering Intern',
+      company: 'PurpleMerit',
+      duration: 'March 2026 – Present',
+      location: 'India',
+      icon: Briefcase,
+      achievements: [
+        'Built and maintained backend modules powering analytics and workflow automation features.',
+        'Designed API endpoints and service logic with attention to performance and maintainability.',
+        'Integrated AWS-backed infrastructure and deployment processes for stable service delivery.',
+        'Improved request handling and data access patterns to reduce latency in key endpoints.',
+        'Collaborated in iterative releases with product and engineering stakeholders.',
+      ],
+      technologies: ['Node.js', 'Express', 'PostgreSQL', 'AWS', 'Docker'],
+    },
+    {
       title: 'Software Developer Intern',
-      company: 'StuFit Approach Pvt. Ltd., Lucknow',
+      company: 'StuFit Approach Pvt. Ltd.',
       duration: 'July 2025 – September 2025',
       location: 'Lucknow, India',
       icon: Briefcase,
       achievements: [
-        'Designed and shipped scalable backend services using NestJS and PostgreSQL, supporting 2,000+ active users',
-        'Owned backend modules end-to-end including API design, implementation, testing, deployment, and production support',
-        'Optimized database queries and execution paths, achieving ~30% reduction in API latency',
-        'Implemented secure authentication and role-based access control (JWT + RBAC)',
-        'Debugged and resolved production incidents, improving system reliability and user experience',
-        'Collaborated with senior engineers through code reviews, Agile sprints, and structured feedback',
+        'Designed and shipped backend services using NestJS and PostgreSQL for user-facing product modules.',
+        'Owned modules end-to-end from API design to deployment and production support.',
+        'Optimized query paths and endpoint execution, reducing latency in frequently used APIs.',
+        'Implemented JWT-based authentication and RBAC patterns for secure service access.',
+        'Worked on production debugging, release quality, and reliability improvements.',
       ],
       technologies: ['NestJS', 'PostgreSQL', 'JWT', 'RBAC', 'AWS', 'Agile'],
-      gradient: 'from-blue-500 to-cyan-500',
     },
   ];
 
@@ -33,108 +46,70 @@ export default function Experience() {
     <section
       id="experience"
       ref={ref}
-      className="relative py-20 lg:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+      className="relative border-t border-slate-900 py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="mb-10"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Work Experience
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">Experience</p>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Product engineering in real environments</h2>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto space-y-8">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-cyan-500 to-purple-500 hidden md:block" />
+        <div className="space-y-6">
 
           {experiences.map((experience, expIndex) => (
             <motion.div
               key={experience.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + expIndex * 0.2 }}
-              className="relative"
+              transition={{ duration: 0.35, delay: expIndex * 0.12 }}
             >
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="relative md:ml-16 p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/50 transition-all"
-              >
-                <div className="absolute -left-12 top-8 hidden md:block">
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${experience.gradient} flex items-center justify-center shadow-lg shadow-blue-500/50`}>
-                    <experience.icon className="w-4 h-4 text-white" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+              <article className="rounded-xl border border-slate-800 bg-slate-900/60 p-6 sm:p-7">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <div className="mb-3 inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-950 px-2.5 py-1 text-xs text-slate-300">
+                      <experience.icon className="h-3.5 w-3.5 text-cyan-300" />
                       {experience.title}
-                    </h3>
-                    <p className="text-xl text-blue-400 font-semibold mb-4">
-                      {experience.company}
+                    </div>
+                    <h3 className="text-xl font-semibold text-slate-100">{experience.company}</h3>
+                  </div>
+
+                  <div className="space-y-1 text-sm text-slate-400">
+                    <p className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4" />
+                      {experience.duration}
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4" />
+                      {experience.location}
                     </p>
                   </div>
-
-                  <div className="space-y-2">
-                    <div className="flex items-center text-slate-400">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      <span className="text-sm">{experience.duration}</span>
-                    </div>
-                    <div className="flex items-center text-slate-400">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      <span className="text-sm">{experience.location}</span>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="mt-5 space-y-3">
                   {experience.achievements.map((achievement, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.6, delay: 0.4 + expIndex * 0.2 + index * 0.1 }}
-                      className="flex items-start group"
+                      className="flex items-start"
                     >
-                      <CheckCircle className="w-5 h-5 mr-3 mt-0.5 text-cyan-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                      <p className="text-slate-300 leading-relaxed">
-                        {achievement}
-                      </p>
-                    </motion.div>
+                      <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyan-300" />
+                      <p className="ml-3 text-sm leading-relaxed text-slate-300">{achievement}</p>
+                    </div>
                   ))}
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.6, delay: 0.8 + expIndex * 0.2 }}
-                  className="mt-6 pt-6 border-t border-slate-700/50"
-                >
-                  <h4 className="text-sm font-semibold text-slate-400 mb-3">
-                    Technologies Used:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {experience.technologies.map((tech, index) => (
-                      <motion.span
-                        key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.4, delay: 0.9 + expIndex * 0.2 + index * 0.05 }}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-medium"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.div>
-              </motion.div>
+                <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-800 pt-4">
+                  {experience.technologies.map((tech) => (
+                    <span key={tech} className="rounded-md border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-300">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </article>
             </motion.div>
           ))}
         </div>

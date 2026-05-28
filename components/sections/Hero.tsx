@@ -1,183 +1,250 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Download, Mail, Github, Linkedin, Instagram, ChevronDown } from 'lucide-react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import { useEffect, useState } from 'react';
+import { ArrowUpRight, FileText, Github, Linkedin, Mail } from 'lucide-react';
 
-function AnimatedSphere() {
+const systemCards = [
+  { label: 'API', x: '12%', y: '12%', rotate: -12 },
+  { label: 'DB', x: '0%', y: '48%', rotate: 8 },
+  { label: 'Cloud', x: '72%', y: '12%', rotate: 8 },
+  { label: 'AI', x: '78%', y: '56%', rotate: -10 },
+];
+
+const featureLines = [
+  { x1: '24%', y1: '30%', x2: '48%', y2: '30%' },
+  { x1: '28%', y1: '58%', x2: '50%', y2: '54%' },
+  { x1: '60%', y1: '22%', x2: '78%', y2: '18%' },
+  { x1: '58%', y1: '60%', x2: '76%', y2: '56%' },
+];
+
+function SystemIllustration() {
   return (
-    <Sphere visible args={[1, 100, 200]} scale={2.5}>
-      <MeshDistortMaterial
-        color="#3b82f6"
-        attach="material"
-        distort={0.5}
-        speed={2}
-        roughness={0.2}
+    <div className="relative mx-auto h-[360px] w-full max-w-[520px] overflow-hidden rounded-[1.75rem] border border-cyan-400/15 bg-slate-950/70 p-4 shadow-[0_0_80px_rgba(34,211,238,0.08)] sm:h-[440px] sm:max-w-[560px] sm:p-5 lg:h-[520px]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(34,211,238,0.12),_transparent_45%)]" />
+      <div className="absolute inset-0 opacity-40 section-grid [mask-image:radial-gradient(circle_at_center,white,transparent_75%)]" />
+
+      <motion.div
+        className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-[1.4rem] border border-cyan-400/35 bg-slate-900/90 shadow-[0_0_50px_rgba(34,211,238,0.25)] sm:h-36 sm:w-36 lg:h-44 lg:w-44 lg:rounded-[2rem]"
+        animate={{ rotateY: [0, 12, 0], rotateX: [0, -8, 0], y: [0, -6, 0] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        <div className="absolute inset-2 rounded-[1rem] border border-cyan-400/25 bg-[linear-gradient(135deg,rgba(10,14,28,0.9),rgba(0,0,0,0.5))] sm:inset-3 sm:rounded-[1.3rem]" />
+        <div className="absolute inset-0 flex items-center justify-center text-3xl font-semibold text-cyan-300 sm:text-4xl lg:text-5xl">
+          {'</>'}
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="absolute left-1/2 top-[18%] h-14 w-14 -translate-x-1/2 rounded-2xl border border-cyan-400/25 bg-cyan-500/10 shadow-[0_0_40px_rgba(34,211,238,0.25)] backdrop-blur sm:h-16 sm:w-16 lg:h-20 lg:w-20"
+        animate={{ y: [0, -10, 0], x: [0, 6, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />
-    </Sphere>
+      <motion.div
+        className="absolute left-[8%] top-[58%] h-16 w-16 rounded-2xl border border-blue-400/20 bg-slate-900/90 shadow-[0_0_30px_rgba(59,130,246,0.18)] sm:h-20 sm:w-20 lg:h-24 lg:w-24"
+        animate={{ y: [0, 8, 0], x: [0, -5, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute right-[8%] top-[24%] h-16 w-16 rounded-2xl border border-fuchsia-400/20 bg-slate-900/90 shadow-[0_0_30px_rgba(168,85,247,0.15)] sm:h-20 sm:w-20 lg:h-24 lg:w-24"
+        animate={{ y: [0, -8, 0], x: [0, 6, 0] }}
+        transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute right-[9%] bottom-[18%] h-16 w-16 rounded-2xl border border-cyan-400/25 bg-slate-900/90 shadow-[0_0_30px_rgba(34,211,238,0.2)] sm:h-20 sm:w-20 lg:h-24 lg:w-24"
+        animate={{ y: [0, 7, 0], x: [0, -6, 0] }}
+        transition={{ duration: 7.2, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {featureLines.map((line, index) => (
+        <motion.svg
+          key={index}
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          initial={{ opacity: 0.2 }}
+          animate={{ opacity: [0.2, 0.55, 0.2] }}
+          transition={{ duration: 3.8 + index * 0.2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <line
+            x1={line.x1}
+            y1={line.y1}
+            x2={line.x2}
+            y2={line.y2}
+            stroke="rgba(34,211,238,0.55)"
+            strokeWidth="0.4"
+            strokeDasharray="1.2 1.6"
+          />
+        </motion.svg>
+      ))}
+
+      {systemCards.map((card, index) => (
+        <motion.div
+          key={card.label}
+          className="absolute rounded-2xl border border-cyan-400/20 bg-slate-950/75 px-3 py-2 text-[11px] font-medium text-cyan-200 shadow-[0_0_25px_rgba(34,211,238,0.12)] backdrop-blur sm:px-4 sm:py-3 sm:text-sm"
+          style={{ left: card.x, top: card.y, transform: `rotate(${card.rotate}deg)` }}
+          animate={{ y: [0, -7, 0] }}
+          transition={{ duration: 5.5 + index * 0.4, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <span className="block text-[10px] uppercase tracking-[0.18em] text-slate-400">Module</span>
+          <span>{card.label}</span>
+        </motion.div>
+      ))}
+
+      <motion.div
+        className="absolute left-4 top-4 rounded-2xl border border-cyan-400/15 bg-slate-900/80 px-3 py-2 text-[10px] text-slate-300 shadow-lg backdrop-blur sm:left-5 sm:top-5 sm:px-4 sm:py-3 sm:text-xs"
+        animate={{ y: [0, 5, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        Distributed APIs
+      </motion.div>
+      <motion.div
+        className="absolute bottom-4 left-4 rounded-2xl border border-blue-400/15 bg-slate-900/80 px-3 py-2 text-[10px] text-slate-300 shadow-lg backdrop-blur sm:bottom-5 sm:left-5 sm:px-4 sm:py-3 sm:text-xs"
+        animate={{ y: [0, -5, 0] }}
+        transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        AI Workflows
+      </motion.div>
+      <motion.div
+        className="absolute right-4 bottom-4 rounded-2xl border border-fuchsia-400/15 bg-slate-900/80 px-3 py-2 text-[10px] text-slate-300 shadow-lg backdrop-blur sm:right-5 sm:bottom-5 sm:px-4 sm:py-3 sm:text-xs"
+        animate={{ y: [0, 5, 0] }}
+        transition={{ duration: 7.8, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        Cloud Ready
+      </motion.div>
+    </div>
   );
 }
 
 export default function Hero() {
+  const typingText = 'I build production-grade backend platforms and AI-powered workflows.';
+  const [typedText, setTypedText] = useState('');
+  const [glow, setGlow] = useState({ x: 50, y: 35 });
+
+  useEffect(() => {
+    let index = 0;
+    const interval = window.setInterval(() => {
+      index += 1;
+      setTypedText(typingText.slice(0, index));
+      if (index >= typingText.length) {
+        window.clearInterval(interval);
+      }
+    }, 22);
+
+    return () => window.clearInterval(interval);
+  }, [typingText]);
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
+      className="relative overflow-hidden px-4 pb-12 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pt-32"
+      onMouseMove={(event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        setGlow({
+          x: ((event.clientX - rect.left) / rect.width) * 100,
+          y: ((event.clientY - rect.top) / rect.height) * 100,
+        });
+      }}
+      onMouseLeave={() => setGlow({ x: 50, y: 35 })}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-slate-900/50 to-cyan-900/20" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.16),_rgba(2,6,23,0)_40%),linear-gradient(180deg,#020617_0%,#020617_100%)]" />
+      <div className="absolute inset-0 -z-10 opacity-30 section-grid [mask-image:linear-gradient(to_bottom,white,transparent_85%)]" />
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-70 transition-all duration-500"
+        style={{
+          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(34,211,238,0.12), transparent 28%)`,
+        }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="absolute left-0 top-24 -z-10 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl sm:h-96 sm:w-96"
+        animate={{ y: [0, 12, 0], x: [0, 10, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 -z-10 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl sm:h-96 sm:w-96"
+        animate={{ y: [0, -10, 0], x: [0, -12, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+      />
 
-      <div className="absolute inset-0 opacity-30">
-        <Canvas>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <AnimatedSphere />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-        </Canvas>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-6"
-        >
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm"
-          >
-            <span className="text-blue-400 text-sm font-medium">
-              Welcome to my portfolio
-            </span>
-          </motion.div>
-
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">
-            <motion.span
-              className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              VISHWAJEET
-            </motion.span>
-            <motion.span
-              className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-500 bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              KUMAR
-            </motion.span>
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl sm:text-2xl md:text-3xl text-slate-300 font-light max-w-4xl mx-auto"
-          >
-            Software Engineer | Backend & Distributed Systems
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto"
-          >
-            Backend-focused Software Engineer with hands-on experience building scalable, production-grade systems. Strong 
-            foundations in distributed systems, backend architecture, databases, caching, and system design. Experienced in 
-            owning services end-to-end — from design and development to deployment, optimization, and production debugging. 
-            Actively seeking Backend / Software Engineer roles in product-driven teams.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-wrap items-center justify-center gap-4 pt-8"
+            transition={{ duration: 0.5 }}
+            className="space-y-8"
           >
-            <motion.a
-              href="#contact"
-              className="px-8 py-4 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-shadow"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Mail className="inline-block w-5 h-5 mr-2" />
-              Get In Touch
-            </motion.a>
+            <p className="inline-flex rounded-full border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 font-mono text-xs uppercase tracking-[0.16em] text-cyan-300 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
+              Backend x Distributed Systems x Applied AI
+            </p>
 
-            <motion.a
-              href="/Vishwajeet's_Resume.pdf"
-              download
-              className="px-8 py-4 rounded-lg  backdrop-blur-sm border border-slate-700 text-white font-semibold shadow-lg shadow-slate-800/50 hover:border-blue-500 hover:shadow-blue-500/30 transition-all"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Download className="inline-block w-5 h-5 mr-2" />
-              Download Resume
-            </motion.a>
+            <div className="space-y-3">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">Vishwajeet Kumar</p>
+              <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+                Backend Engineer | Distributed Systems | Applied AI Systems
+              </h1>
+            </div>
+
+            <p className="max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              {typedText}
+              <span className="ml-0.5 inline-block h-5 w-[2px] translate-y-1 bg-cyan-300 align-middle animate-pulse" />
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              <a href="/Vishwajeet's_Resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/40 bg-cyan-500/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.18)]">
+                <FileText className="h-4 w-4" />
+                View Resume
+              </a>
+              <a href="https://github.com/Vishwajeet-Kumar-Patel" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:shadow-[0_0_24px_rgba(34,211,238,0.1)]">
+                <Github className="h-4 w-4" />
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/vishwajeet-kumar-00b817239" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:shadow-[0_0_24px_rgba(34,211,238,0.1)]">
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </a>
+              <a href="https://leetcode.com/u/vishwajeet_kumar_patel/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:shadow-[0_0_24px_rgba(34,211,238,0.1)]">
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current text-cyan-300"><path d="M13.5 3.5l-6 6a2 2 0 000 2.828l6 6 1.414-1.414-6-6 6-6z" /></svg>
+                LeetCode
+              </a>
+              <a href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:shadow-[0_0_24px_rgba(34,211,238,0.1)]">
+                <Mail className="h-4 w-4" />
+                Contact
+              </a>
+            </div>
+
+            <div className="grid gap-4 pt-2 text-sm text-slate-400 sm:grid-cols-3">
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/55 p-4 backdrop-blur-sm">
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-300">Focus</p>
+                <p className="mt-2 text-slate-300">Scalable APIs, event-driven services, and AI-assisted product workflows</p>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/55 p-4 backdrop-blur-sm">
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-300">Approach</p>
+                <p className="mt-2 text-slate-300">Design for reliability first, then optimize latency and operability</p>
+              </div>
+              <a href="#projects" className="group rounded-2xl border border-slate-800 bg-slate-900/55 p-4 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-cyan-400/30 hover:shadow-[0_0_30px_rgba(34,211,238,0.08)]">
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-300">Recent Work</p>
+                <p className="mt-2 flex items-center gap-2 text-slate-300">
+                  Explore production-oriented projects
+                  <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </p>
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex items-center justify-center gap-6 pt-8"
+            initial={{ opacity: 0, x: 28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            className="relative"
           >
-            <motion.a
-              href="https://github.com/Vishwajeet-Kumar-Patel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-blue-500 transition-colors"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Github className="w-6 h-6" />
-            </motion.a>
-
-            <motion.a
-              href="https://www.linkedin.com/in/vishwajeet-kumar-00b817239"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-blue-500 transition-colors"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Linkedin className="w-6 h-6" />
-            </motion.a>
-
-            <motion.a
-              href="https://www.instagram.com/vishwajeet_kumar_patel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-pink-500 transition-colors"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Instagram className="w-6 h-6" />
-            </motion.a>
+            <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-cyan-500/5 blur-3xl" />
+            <SystemIllustration />
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.a
-            href="#about"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-slate-400 hover:text-white transition-colors"
-          >
-            <ChevronDown className="w-8 h-8" />
-          </motion.a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

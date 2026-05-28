@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { GitPullRequest, ExternalLink, Github, CheckCircle } from 'lucide-react';
+import { CheckCircle, ExternalLink, GitPullRequest } from 'lucide-react';
 
 export default function OpenSource() {
   const ref = useRef(null);
@@ -16,37 +16,31 @@ export default function OpenSource() {
       role: 'Open Source Contributor',
       repository: 'langchain-ai/langchain',
       prLink: 'https://github.com/langchain-ai/langchain/pull/34226',
-      githubLink: 'https://github.com/langchain-ai/langchain',
       description:
-        'Contributed a core feature to LangChain by enhancing init_chat_model, a central API used for initializing chat models across providers. The contribution improved robustness, developer experience, and production readiness of the framework.',
+        'Contributed to LangChain internals by improving reliability around model initialization and developer-facing behavior in production-centric code paths.',
       keyContributions: [
-        'Improved input validation and model inference logic in init_chat_model',
-        'Added comprehensive unit tests to ensure correctness and prevent regressions',
-        'Fixed linting issues and resolved CI pipeline failures',
-        'Collaborated with maintainers through multiple review cycles to refine the implementation',
-        'Gained hands-on experience working with a large, production-grade open-source codebase',
+        'Improved validation logic for safer model setup and clearer failure handling',
+        'Enhanced inference-related workflow behavior in initialization paths',
+        'Added targeted test coverage to prevent regressions in edge scenarios',
+        'Worked through maintainer review cycles with iterative PR refinements',
       ],
       techStack: ['Python', 'LangChain Core', 'Pytest', 'CI/CD', 'GitHub Actions'],
-      gradient: 'from-green-500 to-emerald-500',
     },
     {
       title: 'Next.js',
-      subtitle: 'Documentation Enhancement',
+      subtitle: 'Documentation Contribution',
       role: 'Open Source Contributor',
       repository: 'vercel/next.js',
       prLink: 'https://github.com/vercel/next.js/pull/87654',
-      githubLink: 'https://github.com/vercel/nextjs',
       description:
-        'Enhanced the App Router internationalization documentation with practical improvements for better developer experience. Added installation instructions, best practices for SEO optimization, locale persistence patterns, and TypeScript examples. PR has been approved and is awaiting merge from maintainers with write access.',
+        'Improved the App Router internationalization documentation with clearer guidance for setup, SEO, and locale handling.',
       keyContributions: [
-        'Added installation commands and dependency setup for internationalization packages',
-        'Created comprehensive Best Practices section covering SEO optimization with hreflang tags and locale persistence using cookies',
-        'Improved middleware examples and restructured proxy patterns for better clarity',
-        'Collaborated with Next.js maintainers through multiple review cycles to align with documentation standards',
-        'PR approved after addressing feedback on Metadata API patterns, type definitions, and redirect logic',
+        'Added setup and installation guidance for internationalization workflows',
+        'Documented SEO best practices including locale-aware metadata and hreflang usage',
+        'Improved examples for middleware and locale persistence patterns',
+        'Refined content through review cycles to align with maintainers’ documentation standards',
       ],
       techStack: ['Next.js', 'TypeScript', 'MDX', 'Documentation', 'i18n'],
-      gradient: 'from-blue-500 to-cyan-500',
     },
   ];
 
@@ -54,145 +48,72 @@ export default function OpenSource() {
     <section
       id="opensource"
       ref={ref}
-      className="relative py-20 lg:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+      className="relative border-t border-slate-900 py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="mb-10"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
-              Open Source Contributions
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full" />
-          <p className="text-slate-400 text-lg mt-6 max-w-2xl mx-auto">
-            Contributing to the open-source community and building production-grade features
-          </p>
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">Open Source</p>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Contributions to production tooling</h2>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto space-y-8">
+        <div className="space-y-6">
           {contributions.map((contribution, index) => (
             <motion.div
               key={contribution.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
-              whileHover={{ scale: 1.01 }}
-              className="relative group"
+              transition={{ duration: 0.35, delay: 0.08 + index * 0.1 }}
+              className="rounded-xl border border-slate-800 bg-slate-900/60 p-6"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${contribution.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl blur-xl`}
-              />
-              <div className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-green-500/50 transition-all">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div
-                        className={`p-3 rounded-xl bg-gradient-to-br ${contribution.gradient} shadow-lg`}
-                      >
-                        <GitPullRequest className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-3xl font-bold text-white">
-                          {contribution.title}
-                        </h3>
-                        <p className="text-lg text-green-400 font-semibold">
-                          {contribution.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-slate-400 mb-2">
-                      <span className="font-semibold">Role:</span> {contribution.role}
-                    </p>
-                    <p className="text-slate-400 mb-4">
-                      <span className="font-semibold">Repository:</span> {contribution.repository}
-                    </p>
-                  </div>
-
-                  <div className="flex gap-2 mt-4 md:mt-0">
-                    {contribution.prLink && (
-                      <motion.a
-                        href={contribution.prLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="p-2 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-green-500/50 transition-colors"
-                        title="View Pull Request"
-                      >
-                        <ExternalLink className="w-5 h-5 text-slate-400 hover:text-green-400" />
-                      </motion.a>
-                    )}
-                    {contribution.githubLink && (
-                      <motion.a
-                        href={contribution.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="p-2 rounded-lg bg-slate-800/50 border border-slate-700/50 hover:border-green-500/50 transition-colors"
-                        title="View Repository"
-                      >
-                        <Github className="w-5 h-5 text-slate-400 hover:text-green-400" />
-                      </motion.a>
-                    )}
-                  </div>
-                </div>
-
-                <p className="text-slate-300 leading-relaxed mb-6">
-                  {contribution.description}
-                </p>
-
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                    <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
-                    Key Contributions:
-                  </h4>
-                  <ul className="space-y-3">
-                    {contribution.keyContributions.map((item, itemIndex) => (
-                      <motion.li
-                        key={itemIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{
-                          duration: 0.5,
-                          delay: 0.3 + itemIndex * 0.1,
-                        }}
-                        className="flex items-start text-slate-300"
-                      >
-                        <div className="min-w-[6px] w-1.5 h-1.5 rounded-full bg-green-400 mt-2 mr-3" />
-                        <span>{item}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-
+              <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-400 mb-3">
-                    Tech Stack:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {contribution.techStack.map((tech, techIndex) => (
-                      <motion.span
-                        key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.4 + techIndex * 0.05,
-                        }}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-medium"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
+                  <p className="mb-2 inline-flex items-center gap-2 rounded-md border border-slate-700 bg-slate-950 px-2.5 py-1 text-xs text-slate-300">
+                    <GitPullRequest className="h-3.5 w-3.5 text-cyan-300" />
+                    {contribution.subtitle}
+                  </p>
+                  <h3 className="text-xl font-semibold text-slate-100">{contribution.title}</h3>
+                  <p className="mt-1 text-sm text-slate-400">{contribution.role} · {contribution.repository}</p>
                 </div>
+
+                <a
+                  href={contribution.prLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-300 transition hover:border-slate-500"
+                >
+                  PR
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+
+              <p className="mt-4 text-sm leading-relaxed text-slate-300">{contribution.description}</p>
+
+              <div className="mt-4 space-y-2">
+                {contribution.keyContributions.map((item, itemIndex) => (
+                  <motion.div
+                    key={itemIndex}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.3, delay: 0.16 + itemIndex * 0.06 }}
+                    className="flex items-start text-sm text-slate-400"
+                  >
+                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyan-300" />
+                    <span className="ml-2.5">{item}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-800 pt-4">
+                {contribution.techStack.map((tech) => (
+                  <span key={tech} className="rounded-md border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-300">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}

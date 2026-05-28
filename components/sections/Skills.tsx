@@ -3,60 +3,38 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Trophy } from 'lucide-react';
+import { Bot, Boxes, CloudCog, Database, Server, TerminalSquare } from 'lucide-react';
 
 const skillCategories = [
   {
-    title: 'Languages',
-    skills: ['Java', 'Python', 'JavaScript'],
-    gradient: 'from-blue-500 to-cyan-500',
-  },
-  {
-    title: 'Backend Engineering',
-    skills: ['Node.js', 'NestJS', 'Spring Boot', 'REST APIs', 'Microservices', 'WebSockets'],
-    gradient: 'from-cyan-500 to-teal-500',
+    title: 'Backend',
+    icon: Server,
+    skills: ['Node.js', 'Express', 'NestJS', 'FastAPI', 'REST APIs', 'WebSockets'],
   },
   {
     title: 'Frontend',
-    skills: ['Next.js', 'React', 'TypeScript'],
-    gradient: 'from-teal-500 to-green-500',
+    icon: Boxes,
+    skills: ['Next.js', 'React', 'Tailwind CSS', 'Responsive UI', 'HTML', 'CSS'],
   },
   {
-    title: 'Databases & Caching',
+    title: 'AI / GenAI',
+    icon: Bot,
+    skills: ['LangChain', 'LangGraph', 'RAG', 'Vector Embeddings', 'Prompt Engineering', 'Qdrant'],
+  },
+  {
+    title: 'Databases',
+    icon: Database,
     skills: ['PostgreSQL', 'MongoDB', 'Redis'],
-    gradient: 'from-green-500 to-emerald-500',
-  },
-  {
-    title: 'Distributed Systems',
-    skills: ['Stateless Services', 'Concurrency Handling', 'Rate Limiting', 'Horizontal Scaling'],
-    gradient: 'from-emerald-500 to-blue-500',
   },
   {
     title: 'Cloud & DevOps',
-    skills: ['AWS (EC2, S3, RDS)', 'Docker', 'CI/CD', 'GitHub Actions', 'Git'],
-    gradient: 'from-blue-500 to-purple-500',
+    icon: CloudCog,
+    skills: ['AWS', 'Docker', 'CI/CD', 'GitHub Actions'],
   },
   {
-    title: 'Security & Auth',
-    skills: ['JWT', 'RBAC'],
-    gradient: 'from-purple-500 to-pink-500',
-  },
-  {
-    title: 'Computer Science',
-    skills: ['Data Structures & Algorithms', 'OOPs', 'System Design', 'Low-Level & High-Level Design'],
-    gradient: 'from-pink-500 to-rose-500',
-  },
-  {
-    title: 'AI & ML',
-    skills: [
-      'Generative AI',
-      'LLMs (OpenAI, Gemini)',
-      'LangChain',
-      'Prompt Engineering',
-      'RAG',
-      'Vector Embeddings',
-    ],
-    gradient: 'from-rose-500 to-orange-500',
+    title: 'Languages',
+    icon: TerminalSquare,
+    skills: ['JavaScript', 'TypeScript', 'Python', 'Java'],
   },
 ];
 
@@ -68,113 +46,72 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="relative py-20 lg:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
+      className="relative border-t border-slate-900 py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="mb-10"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Technical Skills
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
-          <p className="text-slate-400 text-lg mt-6 max-w-2xl mx-auto">
-            Expertise in cutting-edge technologies for building intelligent,
-            scalable applications
-          </p>
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">Skills</p>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Technology stack I use to ship systems</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="relative group"
+              transition={{ duration: 0.35, delay: categoryIndex * 0.06 }}
+              className="rounded-xl border border-slate-800 bg-slate-900/60 p-5"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl blur-xl`}
-              />
-              <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 dark:from-slate-800/50 dark:to-slate-900/50 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-slate-600 transition-all h-full">
-                <div
-                  className={`inline-flex px-4 py-2 rounded-lg bg-gradient-to-r ${category.gradient} mb-6`}
-                >
-                  <h3 className="text-white font-bold text-lg">
-                    {category.title}
-                  </h3>
-                </div>
+              <div className="flex items-center gap-3">
+                <category.icon className="h-5 w-5 text-cyan-300" />
+                <h3 className="text-base font-semibold text-slate-100">{category.title}</h3>
+              </div>
 
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{
-                        duration: 0.4,
-                        delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                      }}
-                      whileHover={{ scale: 1.1 }}
-                      className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-medium"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
+              <div className="mt-4 flex flex-wrap gap-2.5">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-md border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-sm text-slate-300"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* LeetCode Achievement */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 max-w-3xl mx-auto"
-        >
-          <motion.div
-            whileHover={{ scale: 1.02, y: -5 }}
-            className="relative group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-yellow-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl blur-xl" />
-            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-orange-500/50 transition-all">
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-orange-500 to-yellow-500 shadow-lg">
-                    <Trophy className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">
-                      Data Structures & Algorithms
-                    </h3>
-                    <p className="text-orange-400 font-semibold text-lg">
-                      400+ Problems Solved on LeetCode
-                    </p>
-                  </div>
-                </div>
-                <motion.a
-                  href="https://leetcode.com/u/vishwajeet_kumar_patel/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-semibold hover:shadow-lg hover:shadow-orange-500/50 transition-all"
-                >
-                  <span>View Profile</span>
-                  <ExternalLink className="w-4 h-4" />
-                </motion.a>
-              </div>
+        <div className="mt-8 rounded-xl border border-slate-800 bg-slate-900/50 p-4 text-sm text-slate-400">
+          <p className="flex items-center gap-2 text-slate-300">
+            <Boxes className="h-4 w-4 text-cyan-300" />
+            Current preference: pragmatic architecture, explicit interfaces, and operational simplicity.
+          </p>
+        </div>
+
+        <div className="mt-4 rounded-xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">LeetCode</p>
+              <h3 className="mt-2 text-lg font-semibold text-white">DSA practice and problem-solving discipline</h3>
+              <p className="mt-1 text-sm text-slate-400">400+ problems solved with a focus on backend reasoning and interview readiness.</p>
             </div>
-          </motion.div>
-        </motion.div>
+
+            <a
+              href="https://leetcode.com/u/vishwajeet_kumar_patel/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-md border border-cyan-400/40 bg-cyan-500/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition hover:border-cyan-300"
+            >
+              View LeetCode
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

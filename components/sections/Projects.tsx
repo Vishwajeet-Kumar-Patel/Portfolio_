@@ -1,80 +1,68 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Brain, FileSearch, Activity, Sprout, Gamepad2, Link2, Code2 } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Real-Time Multiplayer Backend System',
-    subtitle: 'Distributed Backend System',
+    title: 'Monetized Link Shortener SaaS',
     description:
-      'Built a low-latency, distributed backend to support concurrent users in real time. Designed Redis-based in-memory state management to handle concurrency and prevent race conditions. Implemented room-scoped WebSocket communication for efficient real-time synchronization. Deployed stateless services to enable horizontal scaling and fault tolerance.',
-    techStack: ['Node.js', 'PostgreSQL', 'Redis', 'AWS', 'Socket.io'],
-    icon: Gamepad2,
-    gradient: 'from-purple-500 to-pink-500',
-    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Ludo',
-  },
-  {
-    title: 'Distributed URL Shortening Service',
-    subtitle: 'Scalable URL Shortening Service',
-    description:
-      'Designed a high-availability backend service optimized for read-heavy workloads. Implemented Redis caching, rate limiting, and indexed database queries to ensure low-latency redirects. Evaluated CAP trade-offs and system behavior under failure scenarios.',
+      'A read-heavy SaaS backend designed for high-throughput redirects, monetization hooks, cache-aware routing, and API-driven campaign management. The architecture emphasizes low-latency redirects, safe write paths, and clean separation between business logic, persistence, and delivery.',
+    highlights: [
+      'Redis-first redirect path with TTL strategy and fallback database reads',
+      'Rate limiting and abuse protection at API and redirect edges',
+      'PostgreSQL indexing strategy for high-cardinality link lookups',
+    ],
     techStack: ['Node.js', 'FastAPI', 'PostgreSQL', 'Redis', 'AWS'],
-    icon: Link2,
-    gradient: 'from-indigo-500 to-purple-500',
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/URL_Shortener',
   },
   {
-    title: 'AI-Powered Code Review & PR Analysis System',
-    subtitle: 'Intelligent Code Quality Assessment',
+    title: 'Autonomous Codebase Engineer (AI Agent)',
     description:
-      'Built an AI system to analyze pull requests for code quality, complexity, and potential risks. Implemented RAG-based pipelines using vector embeddings for contextual and actionable insights. Designed modular APIs to support scalable analysis across repositories.',
-    techStack: ['FastAPI', 'OpenAI', 'RAG', 'Vector Embeddings'],
-    icon: Code2,
-    gradient: 'from-rose-500 to-red-500',
+      'An agentic backend workflow that analyzes repositories, plans modifications, and executes scoped engineering tasks with guardrails for reliability and traceability. The system is designed around bounded actions, explicit state transitions, and observability so automated changes remain reviewable and safe.',
+    highlights: [
+      'Multi-step orchestration for analysis, planning, and execution stages',
+      'Task state tracking, retry behavior, and deterministic action boundaries',
+      'Designed for production-safe automation instead of one-shot prompting',
+    ],
+    techStack: ['Python', 'LangGraph', 'LangChain', 'FastAPI', 'PostgreSQL'],
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel',
+  },
+  {
+    title: 'AI-Powered Code Review System',
+    description:
+      'A backend platform for repository-aware pull request analysis using retrieval and LLM reasoning to deliver contextual quality feedback. It combines embeddings, indexed context retrieval, and analysis workflows that help turn code review into a more scalable engineering process.',
+    highlights: [
+      'RAG pipeline with embeddings and vector search for code-aware context',
+      'Async job execution for scalable repository and PR analysis',
+      'API architecture designed to integrate with developer workflows',
+    ],
+    techStack: ['FastAPI', 'LangChain', 'RAG', 'Vector Embeddings', 'Qdrant'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/AI_Code_PR_Reviewer',
   },
   {
-    title: 'Agri-Advisor AI',
-    subtitle: 'AI-Based Crop Recommendation & Advisory Platform',
+    title: 'Real-Time Multiplayer Backend System',
     description:
-      'Built a responsive, farmer-facing platform combining an AI chatbot and dashboard to deliver crop-, soil-, and weather-based recommendations. Integrated real-time data (weather, soil) and image-based disease detection to provide step-by-step remedial guidance and crop suggestions. Designed for scalability and accessibility with planned multilingual support and offline-first/SMS–IVR fallbacks to reach rural users.',
-    techStack: ['Next.js', 'Express.js', 'MongoDB', 'Gemini Pro', 'CNN', 'gTTS', 'IMD Weather API'],
-    icon: Sprout,
-    gradient: 'from-amber-500 to-orange-500',
-    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Agri-Advisor',
+      'A distributed realtime backend supporting concurrent sessions, synchronized state updates, and fault-tolerant session lifecycle management. It focuses on room-scoped communication, race-condition avoidance, and stateless deployment patterns that can scale horizontally.',
+    highlights: [
+      'Redis-based ephemeral state for low-latency room updates',
+      'WebSocket event routing with room-scoped communication',
+      'Stateless service deployment model for horizontal scaling',
+    ],
+    techStack: ['Node.js', 'Socket.io', 'Redis', 'PostgreSQL', 'AWS'],
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Ludo',
   },
   {
-    title: 'MindWare',
-    subtitle: 'Mental Health Assessment Web Application',
+    title: 'EduIntel AI Career Platform',
     description:
-      'Designed and developed with secure authentication and progress tracking. Built analytics dashboards using Chart.js to visualize user insights, improving accuracy by 40%. Integrated an AI chatbot via OpenRouter API for personalized support, demonstrating innovation in enterprise AI-driven wellness solutions.',
-    techStack: ['React.js', 'Node.js', 'MongoDB', 'OpenRouter API', 'JWT', 'Chart.js'],
-    icon: Brain,
-    gradient: 'from-blue-500 to-cyan-500',
-    liveLink: 'https://mindware.example.com',
-    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/MindWare',
-  },
-  {
-    title: 'TrackWell',
-    subtitle: 'Fitness Tracker Web Application',
-    description:
-      'Developed a responsive fitness tracking platform with user authentication, goal tracking, and real-time analytics using Chart.js. Integrated Gemini API to build an AI-powered chatbot for personalized fitness guidance. Ensured secure backend with JWT, optimized MongoDB, and a seamless mobile experience.',
-    techStack: ['React.js', 'Node.js', 'MongoDB', 'Gemini API', 'JWT', 'Chart.js'],
-    icon: Activity,
-    gradient: 'from-green-500 to-emerald-500',
-    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/TrackWell',
-  },
-  {
-    title: 'Resume Analyzer',
-    subtitle: 'AI Career Platform',
-    description:
-      'Developed an AI-driven resume ranking and career recommendation system with 90%+ accuracy. Integrated LLM-based scoring and vector embeddings for contextual analysis. Designed modular API architecture achieving sub-2s response time.',
-    techStack: ['React.js', 'Node.js', 'MongoDB', 'FastAPI', 'LLMs', 'Vector Embeddings'],
-    icon: FileSearch,
-    gradient: 'from-cyan-500 to-teal-500',
+      'An AI-backed career intelligence platform with backend pipelines for resume parsing, ranking, and recommendation services. The platform is built around modular APIs, scored workflows, and retrieval-backed insights that can support future product expansion.',
+    highlights: [
+      'Structured ingestion and scoring pipeline for resume data',
+      'Retrieval-powered recommendation workflows with embedding search',
+      'Modular APIs for integration with frontend and partner tooling',
+    ],
+    techStack: ['Node.js', 'FastAPI', 'MongoDB', 'LLMs', 'Vector Embeddings'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Resume_Scorer',
   },
 ];
@@ -84,112 +72,59 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section
-      id="projects"
-      ref={ref}
-      className="relative py-20 lg:py-32 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" ref={ref} className="relative border-t border-slate-900 py-20 lg:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.45 }}
+          className="mb-10"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Featured Projects
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full" />
-          <p className="text-slate-400 text-lg mt-6 max-w-2xl mx-auto">
-            Building intelligent, scalable solutions with cutting-edge AI technology
-          </p>
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">Featured Projects</p>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Production-oriented systems and AI workflows</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-4 lg:grid-cols-2">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="relative group"
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              className="rounded-xl border border-slate-800 bg-slate-900/60 p-6"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl blur-xl`}
-              />
-              <div className="relative h-full p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 dark:from-slate-800/50 dark:to-slate-900/50 light:from-white light:to-slate-50 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-slate-600 transition-all">
-                <div className="flex items-start justify-between mb-6">
-                  <div
-                    className={`p-4 rounded-xl bg-gradient-to-br ${project.gradient} shadow-lg`}
-                  >
-                    <project.icon className="w-8 h-8 text-white" />
-                  </div>
-
-                  <div className="flex space-x-2">
-                    {project.liveLink && (
-                      <motion.a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="p-2 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-blue-500/50 transition-colors"
-                      >
-                        <ExternalLink className="w-5 h-5 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-blue-400" />
-                      </motion.a>
-                    )}
-                    {project.githubLink && (
-                      <motion.a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="p-2 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300 hover:border-blue-500/50 transition-colors"
-                      >
-                        <Github className="w-5 h-5 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-blue-400" />
-                      </motion.a>
-                    )}
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900 mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-lg text-blue-400 dark:text-blue-400 light:text-blue-600 font-semibold mb-4">
-                  {project.subtitle}
-                </p>
-                <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 leading-relaxed mb-6">
-                  {project.description}
-                </p>
-
-                <div>
-                  <h4 className="text-sm font-semibold text-slate-400 dark:text-slate-400 light:text-slate-600 mb-3">
-                    Tech Stack:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, techIndex) => (
-                      <motion.span
-                        key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{
-                          duration: 0.4,
-                          delay: index * 0.2 + techIndex * 0.05,
-                        }}
-                        whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-medium"
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-xl font-semibold text-slate-100">{project.title}</h3>
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-300 transition hover:border-slate-500"
+                >
+                  <Github className="h-3.5 w-3.5" />
+                  Source
+                </a>
               </div>
-            </motion.div>
+
+              <p className="mt-3 text-sm leading-relaxed text-slate-300">{project.description}</p>
+
+              <div className="mt-4 space-y-2">
+                {project.highlights.map((highlight) => (
+                  <p key={highlight} className="flex items-start gap-2 text-sm text-slate-400">
+                    <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-cyan-300" />
+                    {highlight}
+                  </p>
+                ))}
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-800 pt-4">
+                {project.techStack.map((tech) => (
+                  <span key={tech} className="rounded-md border border-slate-700 bg-slate-950 px-2.5 py-1.5 text-xs text-slate-300">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
