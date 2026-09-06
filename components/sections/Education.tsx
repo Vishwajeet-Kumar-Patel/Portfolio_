@@ -9,7 +9,7 @@ const educationData = [
     degree: 'B.Tech Computer Science & Engineering (Artificial Intelligence)',
     institution: 'University of Lucknow',
     duration: 'Nov 2022 – Jun 2026',
-    score: 'CGPA: 8.17 / 10',
+    score: 'CGPA: 8.16 / 10',
     icon: GraduationCap,
     gradient: 'from-cyan-400 to-blue-500',
     description:

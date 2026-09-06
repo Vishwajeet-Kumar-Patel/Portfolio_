@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { ArrowDown, Database, GitBranch, LockKeyhole, Server, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
 import { useRef } from 'react';
 
 const sections = [
@@ -86,6 +87,9 @@ export default function SchedulerCaseStudy() {
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300">
             A closer look at the concurrency, coordination, reliability, testing, and deployment concerns behind the primary backend project.
           </p>
+          <Link href="/projects/distributed-job-scheduler" className="mt-4 inline-flex text-sm font-medium text-cyan-300 hover:text-cyan-200">
+            Read the full case study
+          </Link>
         </motion.div>
 
         <ArchitectureDiagram />

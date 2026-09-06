@@ -16,6 +16,7 @@ const projects = [
     ],
     techStack: ['Java', 'Spring Boot', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'AWS'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel',
+    caseStudyLink: '/projects/distributed-job-scheduler',
   },
   {
     title: 'Real-Time Multiplayer Backend',
@@ -28,6 +29,7 @@ const projects = [
     ],
     techStack: ['Node.js', 'WebSockets', 'Redis', 'PostgreSQL', 'AWS'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Ludo',
+    caseStudyLink: '/projects/real-time-multiplayer-backend',
   },
   {
     title: 'Autonomous Codebase Engineer',
@@ -40,6 +42,7 @@ const projects = [
     ],
     techStack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'PostgreSQL'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel',
+    caseStudyLink: '/projects/autonomous-codebase-engineer',
   },
   {
     title: 'AI-Powered Code Review System',
@@ -52,6 +55,7 @@ const projects = [
     ],
     techStack: ['FastAPI', 'LangChain', 'RAG', 'Embeddings', 'Qdrant'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/AI_Code_PR_Reviewer',
+    caseStudyLink: '/projects/ai-powered-code-review-system',
   },
   {
     title: 'EduIntel AI Career Intelligence Platform',
@@ -64,6 +68,7 @@ const projects = [
     ],
     techStack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'MongoDB', 'Redis'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Resume_Scorer',
+    caseStudyLink: '/projects/eduintel-ai-career-platform',
   },
   {
     title: 'Monetized Link Shortener',
@@ -75,6 +80,7 @@ const projects = [
     ],
     techStack: ['Node.js', 'FastAPI', 'PostgreSQL', 'Redis', 'AWS'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/URL_Shortener',
+    caseStudyLink: '/projects/monetized-link-shortener',
   },
 ];
 
@@ -102,7 +108,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.35, delay: index * 0.06 }}
-              className={`rounded-xl border bg-slate-900/60 p-6 ${index === 0 ? 'border-cyan-400/35 shadow-[0_0_40px_rgba(34,211,238,0.08)] lg:col-span-2' : 'border-slate-800'}`}
+              className="flex h-full flex-col rounded-xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-cyan-400/30 hover:bg-slate-900/80"
             >
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-xl font-semibold text-slate-100">{project.title}</h3>
@@ -116,13 +122,6 @@ export default function Projects() {
                   Source
                 </a>
               </div>
-
-              {index === 0 && (
-                <a href="#scheduler-case-study" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cyan-300 hover:text-cyan-200">
-                  Read the case study
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
-              )}
 
               <p className="mt-3 text-sm leading-relaxed text-slate-300">{project.description}</p>
 
@@ -142,6 +141,11 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
+              <a href={project.caseStudyLink} className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-cyan-300 hover:text-cyan-200">
+                View case study
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
             </motion.article>
           ))}
         </div>
