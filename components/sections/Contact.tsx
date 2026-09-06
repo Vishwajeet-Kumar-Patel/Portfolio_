@@ -91,7 +91,7 @@ export default function Contact() {
               ))}
 
               <a
-                href="/Vishwajeet's_Resume.pdf"
+                href="/Vishwajeet_Kumar_Resume_SWE.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-3 rounded-md border border-cyan-500/40 bg-cyan-500/10 px-3 py-2.5 text-sm text-cyan-200 transition hover:border-cyan-300"

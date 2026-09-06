@@ -178,7 +178,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <a href="/Vishwajeet's_Resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/40 bg-cyan-500/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.18)]">
+              <a href="/Vishwajeet_Kumar_Resume_SWE.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/40 bg-cyan-500/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.18)]">
                 <FileText className="h-4 w-4" />
                 Download Resume
               </a>
