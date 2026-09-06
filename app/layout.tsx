@@ -16,9 +16,9 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vishwajeet.dev'),
-  title: 'Vishwajeet Kumar | Backend Engineer | Distributed Systems | Applied AI Systems',
+  title: 'Vishwajeet Kumar | Software Engineer | Backend & Distributed Systems',
   description:
-    'Backend and Applied AI engineer building scalable APIs, distributed architectures, and production-ready AI workflows.',
+    'Software Engineer focused on backend and distributed systems, with experience across Java, Python, Spring Boot, FastAPI, PostgreSQL, Redis, AWS, Kubernetes, and applied AI.',
   keywords: [
     'Backend Engineer',
     'Distributed Systems',
@@ -29,11 +29,31 @@ export const metadata: Metadata = {
     'System Design',
   ],
   openGraph: {
-    title: 'Vishwajeet Kumar | Backend & Applied AI Engineer',
+    title: 'Vishwajeet Kumar | Software Engineer | Backend & Distributed Systems',
     description:
-      'Portfolio focused on backend systems, distributed architecture, and practical AI engineering.',
+      'Portfolio focused on backend systems, distributed architecture, cloud engineering, and practical AI systems.',
     type: 'website',
+    url: 'https://vishwajeet.dev',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vishwajeet Kumar | Software Engineer',
+    description: 'Backend and distributed systems engineer building reliable software and applied AI workflows.',
+  },
+  alternates: { canonical: 'https://vishwajeet.dev' },
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Vishwajeet Kumar',
+  url: 'https://vishwajeet.dev',
+  jobTitle: 'Software Engineer',
+  sameAs: [
+    'https://github.com/Vishwajeet-Kumar-Patel',
+    'https://www.linkedin.com/in/vishwajeet-kumar-00b817239',
+    'https://leetcode.com/u/vishwajeet_kumar_patel/',
+  ],
 };
 
 export default function RootLayout({
@@ -44,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${plusJakarta.variable} ${jetBrainsMono.variable}`}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         {children}
       </body>
     </html>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import React from 'react';
-import { Download, Github, Linkedin, Mail } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, Phone } from 'lucide-react';
 
 export default function Contact() {
   const ref = React.useRef(null);
@@ -15,6 +15,12 @@ export default function Contact() {
       label: 'Email',
       value: 'vishwajeetkumarpatelmgs@gmail.com',
       href: 'mailto:vishwajeetkumarpatelmgs@gmail.com',
+    },
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: '+91 9569121326',
+      href: 'tel:+919569121326',
     },
   ];
 
@@ -45,7 +51,7 @@ export default function Contact() {
           className="mb-10"
         >
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">Contact</p>
-          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Let us build something reliable</h2>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Let&apos;s build something reliable</h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
             Open to backend engineering, distributed systems, and applied AI engineering opportunities.
           </p>

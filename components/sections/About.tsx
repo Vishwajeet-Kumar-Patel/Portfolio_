@@ -56,11 +56,11 @@ export default function About() {
           className="mb-12"
         >
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">About</p>
-          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Engineering-first product builder</h2>
+          <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Software Engineer focused on backend systems</h2>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            I focus on backend systems that are reliable in production and straightforward to operate. My work combines
-            scalable APIs, distributed service communication, real-time application behavior, and AI-backed features where
-            they provide clear product value. I prefer measurable improvements over hype and prioritize maintainable systems.
+            I&apos;m a Software Engineer focused on backend and distributed systems. I enjoy building reliable APIs, working
+            with databases and distributed infrastructure, and developing AI-powered developer tools. I also contribute to
+            open-source software and continuously strengthen my foundations in DSA, system design, and backend engineering.
           </p>
         </motion.div>
 

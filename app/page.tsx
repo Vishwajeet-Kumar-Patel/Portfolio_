@@ -11,6 +11,10 @@ import Contact from '@/components/sections/Contact';
 import Navigation from '@/components/Navigation';
 import SystemMindset from '@/components/sections/SystemMindset';
 import Stats from '@/components/sections/Stats';
+import WhatIBuild from '@/components/sections/WhatIBuild';
+import EngineeringPractices from '@/components/sections/EngineeringPractices';
+import SchedulerCaseStudy from '@/components/sections/SchedulerCaseStudy';
+import BuildingInPublic from '@/components/sections/BuildingInPublic';
 
 export default function Home() {
   return (
@@ -18,12 +22,16 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Stats />
+      <WhatIBuild />
       <About />
       <Skills />
+      <EngineeringPractices />
       <Projects />
+      <SchedulerCaseStudy />
       <Experience />
       <Education />
       <OpenSource />
+      <BuildingInPublic />
       <SystemMindset />
       <Contact />
     </main>

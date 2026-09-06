@@ -9,17 +9,17 @@ const skillCategories = [
   {
     title: 'Backend',
     icon: Server,
-    skills: ['Node.js', 'Express', 'NestJS', 'FastAPI', 'REST APIs', 'WebSockets'],
+    skills: ['Java', 'Spring Boot', 'Python', 'FastAPI', 'Node.js', 'NestJS', 'Express.js', 'REST APIs'],
   },
   {
     title: 'Frontend',
     icon: Boxes,
-    skills: ['Next.js', 'React', 'Tailwind CSS', 'Responsive UI', 'HTML', 'CSS'],
+    skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Responsive UI'],
   },
   {
     title: 'AI / GenAI',
     icon: Bot,
-    skills: ['LangChain', 'LangGraph', 'RAG', 'Vector Embeddings', 'Prompt Engineering', 'Qdrant'],
+    skills: ['LangChain', 'LangGraph', 'RAG', 'Embeddings', 'Vector Databases', 'Prompt Engineering', 'Agentic AI', 'LLM Evaluation'],
   },
   {
     title: 'Databases',
@@ -29,12 +29,17 @@ const skillCategories = [
   {
     title: 'Cloud & DevOps',
     icon: CloudCog,
-    skills: ['AWS', 'Docker', 'CI/CD', 'GitHub Actions'],
+    skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'GitHub Actions', 'Git'],
   },
   {
     title: 'Languages',
     icon: TerminalSquare,
-    skills: ['JavaScript', 'TypeScript', 'Python', 'Java'],
+    skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL'],
+  },
+  {
+    title: 'Fundamentals',
+    icon: TerminalSquare,
+    skills: ['DSA', 'OOP', 'DBMS', 'Operating Systems', 'Networking', 'Distributed Systems', 'System Design'],
   },
 ];
 
@@ -99,7 +104,7 @@ export default function Skills() {
             <div>
               <p className="font-mono text-xs uppercase tracking-[0.14em] text-cyan-300">LeetCode</p>
               <h3 className="mt-2 text-lg font-semibold text-white">DSA practice and problem-solving discipline</h3>
-              <p className="mt-1 text-sm text-slate-400">400+ problems solved with a focus on backend reasoning and interview readiness.</p>
+              <p className="mt-1 text-sm text-slate-400">500+ problems solved with a focus on backend reasoning and interview readiness.</p>
             </div>
 
             <a

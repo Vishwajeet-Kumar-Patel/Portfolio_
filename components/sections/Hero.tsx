@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ArrowUpRight, FileText, Github, Linkedin, Mail } from 'lucide-react';
 
 const systemCards = [
@@ -118,22 +118,7 @@ function SystemIllustration() {
 }
 
 export default function Hero() {
-  const typingText = 'I build production-grade backend platforms and AI-powered workflows.';
-  const [typedText, setTypedText] = useState('');
   const [glow, setGlow] = useState({ x: 50, y: 35 });
-
-  useEffect(() => {
-    let index = 0;
-    const interval = window.setInterval(() => {
-      index += 1;
-      setTypedText(typingText.slice(0, index));
-      if (index >= typingText.length) {
-        window.clearInterval(interval);
-      }
-    }, 22);
-
-    return () => window.clearInterval(interval);
-  }, [typingText]);
 
   return (
     <section
@@ -178,25 +163,24 @@ export default function Hero() {
             className="space-y-8"
           >
             <p className="inline-flex rounded-full border border-cyan-500/30 bg-cyan-500/5 px-3 py-1 font-mono text-xs uppercase tracking-[0.16em] text-cyan-300 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
-              Backend x Distributed Systems x Applied AI
+              Software Engineer x Backend x Distributed Systems
             </p>
 
             <div className="space-y-3">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">Vishwajeet Kumar</p>
               <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-                Backend Engineer | Distributed Systems | Applied AI Systems
+                Software Engineer | Backend &amp; Distributed Systems
               </h1>
             </div>
 
             <p className="max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              {typedText}
-              <span className="ml-0.5 inline-block h-5 w-[2px] translate-y-1 bg-cyan-300 align-middle animate-pulse" />
+              Building reliable backend systems with Java, Python, Spring Boot, FastAPI, PostgreSQL, Redis, AWS and Kubernetes.
             </p>
 
             <div className="flex flex-wrap gap-3">
               <a href="/Vishwajeet's_Resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/40 bg-cyan-500/10 px-4 py-2.5 text-sm font-medium text-cyan-200 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.18)]">
                 <FileText className="h-4 w-4" />
-                View Resume
+                Download Resume
               </a>
               <a href="https://github.com/Vishwajeet-Kumar-Patel" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:shadow-[0_0_24px_rgba(34,211,238,0.1)]">
                 <Github className="h-4 w-4" />
@@ -214,6 +198,16 @@ export default function Hero() {
                 <Mail className="h-4 w-4" />
                 Contact
               </a>
+            </div>
+
+            <p className="text-sm font-medium text-cyan-200">
+              500+ DSA Problems <span className="px-1 text-slate-600">•</span> 2 Software Engineering Internships <span className="px-1 text-slate-600">•</span> LangChain Open Source Contributor
+            </p>
+
+            <div className="rounded-xl border border-cyan-400/20 bg-cyan-500/5 px-4 py-3 text-sm">
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-300">Currently open to</p>
+              <p className="mt-2 font-medium text-slate-100">Software Engineer • SDE-1 • Backend Engineer • Full Stack Engineer • AI/Backend Engineer</p>
+              <p className="mt-1 text-slate-400">Open to opportunities across India and remote roles.</p>
             </div>
 
             <div className="grid gap-4 pt-2 text-sm text-slate-400 sm:grid-cols-3">

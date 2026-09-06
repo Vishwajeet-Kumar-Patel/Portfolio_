@@ -6,64 +6,75 @@ import { ArrowUpRight, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Monetized Link Shortener SaaS',
+    title: 'Distributed Job Scheduler',
     description:
-      'A read-heavy SaaS backend designed for high-throughput redirects, monetization hooks, cache-aware routing, and API-driven campaign management. The architecture emphasizes low-latency redirects, safe write paths, and clean separation between business logic, persistence, and delivery.',
+      'A distributed scheduling backend for reliable job execution across multiple service instances.',
     highlights: [
-      'Redis-first redirect path with TTL strategy and fallback database reads',
-      'Rate limiting and abuse protection at API and redirect edges',
-      'PostgreSQL indexing strategy for high-cardinality link lookups',
+      'Distributed locking and heartbeats coordinate workers and reduce duplicate execution',
+      'Retry mechanisms and failure recovery handle interrupted jobs',
+      'REST APIs with JUnit, Mockito, and Testcontainers coverage',
     ],
-    techStack: ['Node.js', 'FastAPI', 'PostgreSQL', 'Redis', 'AWS'],
-    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/URL_Shortener',
+    techStack: ['Java', 'Spring Boot', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'AWS'],
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel',
   },
   {
-    title: 'Autonomous Codebase Engineer (AI Agent)',
+    title: 'Real-Time Multiplayer Backend',
     description:
-      'An agentic backend workflow that analyzes repositories, plans modifications, and executes scoped engineering tasks with guardrails for reliability and traceability. The system is designed around bounded actions, explicit state transitions, and observability so automated changes remain reviewable and safe.',
+      'A realtime backend for multiplayer sessions that coordinates concurrent connections and shared game state.',
     highlights: [
-      'Multi-step orchestration for analysis, planning, and execution stages',
-      'Task state tracking, retry behavior, and deterministic action boundaries',
-      'Designed for production-safe automation instead of one-shot prompting',
+      'WebSocket communication for low-latency room-scoped updates',
+      'Redis-backed state and PostgreSQL persistence for session workflows',
+      'AWS-oriented backend architecture for realtime workloads',
     ],
-    techStack: ['Python', 'LangGraph', 'LangChain', 'FastAPI', 'PostgreSQL'],
+    techStack: ['Node.js', 'WebSockets', 'Redis', 'PostgreSQL', 'AWS'],
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Ludo',
+  },
+  {
+    title: 'Autonomous Codebase Engineer',
+    description:
+      'An agentic backend workflow that analyzes repositories, plans modifications, and executes scoped engineering tasks with explicit state and reviewable actions.',
+    highlights: [
+      'LangGraph orchestration for analysis, planning, and execution stages',
+      'FastAPI service boundaries for controlled engineering workflows',
+      'PostgreSQL-backed task state for traceable progress',
+    ],
+    techStack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'PostgreSQL'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel',
   },
   {
     title: 'AI-Powered Code Review System',
     description:
-      'A backend platform for repository-aware pull request analysis using retrieval and LLM reasoning to deliver contextual quality feedback. It combines embeddings, indexed context retrieval, and analysis workflows that help turn code review into a more scalable engineering process.',
+      'A backend platform for repository-aware pull request analysis using retrieval and LLM reasoning to deliver contextual quality feedback.',
     highlights: [
-      'RAG pipeline with embeddings and vector search for code-aware context',
-      'Async job execution for scalable repository and PR analysis',
-      'API architecture designed to integrate with developer workflows',
+      'RAG pipeline with embeddings and Qdrant vector search for code-aware context',
+      'FastAPI service designed for asynchronous repository and PR analysis',
+      'Analysis workflow focused on contextual, reviewable feedback',
     ],
-    techStack: ['FastAPI', 'LangChain', 'RAG', 'Vector Embeddings', 'Qdrant'],
+    techStack: ['FastAPI', 'LangChain', 'RAG', 'Embeddings', 'Qdrant'],
     githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/AI_Code_PR_Reviewer',
   },
   {
-    title: 'Real-Time Multiplayer Backend System',
+    title: 'EduIntel AI Career Intelligence Platform',
     description:
-      'A distributed realtime backend supporting concurrent sessions, synchronized state updates, and fault-tolerant session lifecycle management. It focuses on room-scoped communication, race-condition avoidance, and stateless deployment patterns that can scale horizontally.',
+      'An AI-backed career intelligence platform with modular APIs and retrieval-backed workflows for career insights.',
     highlights: [
-      'Redis-based ephemeral state for low-latency room updates',
-      'WebSocket event routing with room-scoped communication',
-      'Stateless service deployment model for horizontal scaling',
+      'LangChain and LangGraph workflows for structured career intelligence',
+      'RAG and embeddings for retrieval-backed recommendations',
+      'MongoDB and Redis for application data and fast access patterns',
     ],
-    techStack: ['Node.js', 'Socket.io', 'Redis', 'PostgreSQL', 'AWS'],
-    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Ludo',
+    techStack: ['Python', 'FastAPI', 'LangChain', 'LangGraph', 'MongoDB', 'Redis'],
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Resume_Scorer',
   },
   {
-    title: 'EduIntel AI Career Platform',
-    description:
-      'An AI-backed career intelligence platform with backend pipelines for resume parsing, ranking, and recommendation services. The platform is built around modular APIs, scored workflows, and retrieval-backed insights that can support future product expansion.',
+    title: 'Monetized Link Shortener',
+    description: 'A backend for link creation, redirect handling, and monetization-oriented campaign workflows.',
     highlights: [
-      'Structured ingestion and scoring pipeline for resume data',
-      'Retrieval-powered recommendation workflows with embedding search',
-      'Modular APIs for integration with frontend and partner tooling',
+      'Redis caching for read-heavy redirect paths',
+      'PostgreSQL persistence and indexing for link lookups',
+      'API-driven separation between redirect delivery and management workflows',
     ],
-    techStack: ['Node.js', 'FastAPI', 'MongoDB', 'LLMs', 'Vector Embeddings'],
-    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/Resume_Scorer',
+    techStack: ['Node.js', 'FastAPI', 'PostgreSQL', 'Redis', 'AWS'],
+    githubLink: 'https://github.com/Vishwajeet-Kumar-Patel/URL_Shortener',
   },
 ];
 
@@ -91,7 +102,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.35, delay: index * 0.06 }}
-              className="rounded-xl border border-slate-800 bg-slate-900/60 p-6"
+              className={`rounded-xl border bg-slate-900/60 p-6 ${index === 0 ? 'border-cyan-400/35 shadow-[0_0_40px_rgba(34,211,238,0.08)] lg:col-span-2' : 'border-slate-800'}`}
             >
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-xl font-semibold text-slate-100">{project.title}</h3>
@@ -105,6 +116,13 @@ export default function Projects() {
                   Source
                 </a>
               </div>
+
+              {index === 0 && (
+                <a href="#scheduler-case-study" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cyan-300 hover:text-cyan-200">
+                  Read the case study
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              )}
 
               <p className="mt-3 text-sm leading-relaxed text-slate-300">{project.description}</p>
 

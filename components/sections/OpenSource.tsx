@@ -20,9 +20,9 @@ export default function OpenSource() {
         'Contributed to LangChain internals by improving reliability around model initialization and developer-facing behavior in production-centric code paths.',
       keyContributions: [
         'Improved validation logic for safer model setup and clearer failure handling',
-        'Enhanced inference-related workflow behavior in initialization paths',
-        'Added targeted test coverage to prevent regressions in edge scenarios',
-        'Worked through maintainer review cycles with iterative PR refinements',
+        'Improved model initialization behavior and developer-facing error handling',
+        'Added comprehensive parameterized test coverage and documentation improvements',
+        'Worked through maintainer review cycles; contribution was merged after 47 CI checks passed',
       ],
       techStack: ['Python', 'LangChain Core', 'Pytest', 'CI/CD', 'GitHub Actions'],
     },
@@ -86,7 +86,7 @@ export default function OpenSource() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-xs text-slate-300 transition hover:border-slate-500"
                 >
-                  PR
+                  View PR
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>
