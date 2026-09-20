@@ -155,7 +155,7 @@ export default function Hero() {
       />
 
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
+        <div className="grid items-center gap-12 lg:items-start lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -166,11 +166,13 @@ export default function Hero() {
               Software Engineer x Backend x Distributed Systems
             </p>
 
-            <div className="space-y-3">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-slate-400">Vishwajeet Kumar</p>
-              <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-                Software Engineer | Backend &amp; Distributed Systems
+            <div className="space-y-4">
+              <h1 className="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+                Vishwajeet Kumar
               </h1>
+              <p className="max-w-3xl text-xl font-medium leading-tight text-cyan-200 sm:text-2xl lg:text-3xl">
+                Software Engineer | Backend &amp; Distributed Systems
+              </p>
             </div>
 
             <p className="max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
@@ -233,7 +235,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, delay: 0.1 }}
-            className="relative"
+            className="relative lg:pt-16"
           >
             <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-cyan-500/5 blur-3xl" />
             <SystemIllustration />
